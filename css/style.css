@@ -58,6 +58,31 @@ header {
     font-size: 30px;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.userCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imageContainer {
+
+}
+
+.textContainer { 
+    
+}
+
+.userImg {
+    width: 100%;
+    border: 1px solid black;
+}
+
 @media screen and (max-width: 600px) {
 .title {
     font-size: 20px;
