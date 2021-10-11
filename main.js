@@ -19,9 +19,18 @@ function initSite() {
 }
 
 /** Uses the loaded products data to create a visible product list on the website */
+
 function addProductsToWebpage() {
-    // Check your console to see that the products are stored in the listOfProducts varible.
+    for(i = 0; i < listOfProducts.length; i++) {
+        
+        var products = listOfProducts[i]
+        
+        var container = document.createElement("div")
+            
+    }
+
     console.log(listOfProducts);
+ 
 
     // Add your code here, remember to brake your code in to smaller function blocks
     // to reduce complexity and increase readability. Each function should have
