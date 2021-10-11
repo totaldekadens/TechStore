@@ -45,7 +45,12 @@ header {
 
 .myPage {
     font-size: 30px;
+    
+}
+
+.myArrow {
     margin-right: 30px;
+    margin-left: 4px;
 }
 
 .qty {
@@ -94,6 +99,11 @@ header {
         font-size: 20px;
     }
 
+    .myArrow {
+        margin-right: 30px;
+        margin-left: 4px;
+    }
+
     .qty {
         font-size: 30px;
     }
@@ -112,13 +122,16 @@ header {
     .title {
         font-size: 13px;
         margin-left: 10px;
-        
     }  
     
     .myPage {
         font-size: 18px;
         margin-left: 5px;
+    }
+    
+    .myArrow {
         margin-right: 20px;
+        margin-left: 4px;
     }
 
     .qty {
