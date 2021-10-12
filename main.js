@@ -18,28 +18,24 @@ loadProducts();
     // This would also be a good place to initialize other parts of the UI
 
 /** Uses the loaded products data to create a visible product list on the website */
- function addProductsToWebpage() {
+
+function addProductsToWebpage() {
     
     let main = document.getElementsByTagName("main")[0]
-
-    let fullProductContainer = document.createElement("div")
-    fullProductContainer.classList.add("fullProductContainer")
-
-    main.appendChild(fullProductContainer)
 
     for(let i = 0; i < listOfProducts.length; i++)
     {
         let CreatePackage = createProduct(listOfProducts[i])
-        fullProductContainer.appendChild(CreatePackage)
+        main.appendChild(CreatePackage)
     }
 
-    
 }
+
 
    // Creating the function for all the content
     function createProduct(product) {
 
-        // PhoneModel
+        // PhoneModelContainer
         let div = document.createElement("div")
         div.classList = "phoneModelContainer"
         
