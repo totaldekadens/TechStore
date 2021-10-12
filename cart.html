@@ -7,12 +7,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/style.css">
-        <script defer type="module" src="./js/main.js"></script>
+        <link rel="stylesheet" href="css/cart.css">
+        <script defer type="module" src="./cart.js"></script>
     </head>
 
     <!-- Kolla om vi skulle ta bort onload nu när vi lade till defer och "module på scriptfilen och om vi skulle ersätta med något annat" -->
-    <body onload="initSite()">
+    <body>
        
         <header class="flex">
             <div class="title white">
@@ -21,12 +21,12 @@
             <div class="cartAndQty flex white">
                 <a class="white" href="./mypage.html"><div class="myPage"><i class="far fa-user" title="Logga in på Min Sida"></i></div></a>
                 <div class="qty">0</div>
-                <div class="cart"><i class="fas fa-shopping-cart"></i></div>
+                <a class="white" href="./cart.html"><div class="cart"><i class="fas fa-shopping-cart"></i></div></a>
             </div>
         </header>
 
         <main>
-            <!-- Add the content of your site here via javascript -->
+            
         </main>
 
     </body>
