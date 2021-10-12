@@ -75,6 +75,12 @@ main {
     font-size: 60px;
 }
 
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .containerAddedItem {
     display: flex;
     flex-direction: column;
