@@ -68,7 +68,7 @@ let imageContainer = document.createElement("div")
 // Image // Add the list to source!    
 let productImg = document.createElement("img")
     productImg.classList.add("productImg")
-    productImg.src= "assets/iphoneX.png" 
+    productImg.src= "/assets/" + shopping.Image 
     div.appendChild(productImg)
 
 // PhoneModel // Add the list to innerText!    
