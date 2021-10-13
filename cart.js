@@ -86,8 +86,13 @@ let priceItem = document.createElement("h3")
 let buttonContainer = document.createElement("button")
     buttonContainer.classList.add("buttonContainer")
     div.appendChild(buttonContainer)
+ 
+// icon Trash // not working!    
+/* let iconTrash = document.createElement("i")
+    iconTrash.classList.add("far fa-trash-alt")
+    buttonContainer.appendChild(iconTrash) */
 
-// ButtonText // Add trash-icon
+// ButtonText // Need to add trash-icon
 let buttonText = document.createElement("h4")
     buttonText.innerText = "Ta bort"
     buttonContainer.appendChild(buttonText)
