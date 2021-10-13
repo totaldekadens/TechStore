@@ -82,20 +82,34 @@ let priceItem = document.createElement("h3")
     priceItem.innerText = shopping.Price + " kr"
     div.appendChild(priceItem)
 
-// Button
-let buttonContainer = document.createElement("button")
+// Button Container
+let buttonContainer = document.createElement("div")
     buttonContainer.classList.add("buttonContainer")
     div.appendChild(buttonContainer)
+    buttonContainer.addEventListener("click", deleteItem) 
+    buttonContainer.style = "cursor:pointer" 
+    
+// This function shall delete an item from the array (shoppingbag)    
+    function deleteItem() {
+     alert("Den här funktionen skall ta bort produkten senare i processen")
+}
  
-// icon Trash // not working!    
-/* let iconTrash = document.createElement("i")
-    iconTrash.classList.add("far fa-trash-alt")
-    buttonContainer.appendChild(iconTrash) */
+
+ // div to trashcan in buttoncontainer
+let divTrash = document.createElement("div")
+    divTrash.classList.add("divTrash")
+    buttonContainer.appendChild(divTrash)
+    divTrash.innerHTML = '<i class="far fa-trash-alt"></i>'
+
+// div to text in buttoncontainer
+    let divButtonText = document.createElement("div")
+    divButtonText.classList.add("divButtonText")
+    buttonContainer.appendChild(divButtonText)
 
 // ButtonText // Need to add trash-icon
 let buttonText = document.createElement("h4")
     buttonText.innerText = "Ta bort"
-    buttonContainer.appendChild(buttonText)
+    divButtonText.appendChild(buttonText)
 
 }
 
@@ -113,9 +127,23 @@ let totalPrice = document.createElement("h3")
 
 
 // ButtonCompletePurchase
-let buttonCompletePurchase = document.createElement("button")
+let buttonCompletePurchase = document.createElement("div")
     buttonCompletePurchase.classList.add("buttonCompletePurchase")
     main.appendChild(buttonCompletePurchase)
+    buttonCompletePurchase.addEventListener("click", completeTheOrder) 
+    buttonCompletePurchase.style = "cursor:pointer" 
+
+function completeTheOrder() {
+    alert("Den här funktionen ta bort allt från kundvagnen senare i processen")
+}
+
+
+// Container to check-icon    
+let divComplete = document.createElement("div")
+    divComplete.classList.add("divComplete")
+    divComplete.innerHTML = ('<i class="fas fa-check"></i>')
+    buttonCompletePurchase.appendChild(divComplete)
+
 
 // ButtonCompletePurchaseText // Add a complete-icon
 let buttonCompletePurchaseText = document.createElement("h4")
@@ -123,5 +151,4 @@ let buttonCompletePurchaseText = document.createElement("h4")
     buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
 
 
-
-
+ 
