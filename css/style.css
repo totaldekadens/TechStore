@@ -85,7 +85,6 @@ main {
     background-image: linear-gradient(white, whitesmoke)
 }
 
-
 .imageContainer {
 width: 300px
 }
@@ -94,20 +93,17 @@ width: 300px
     width: 100%;
 }
 
-
 .buttonContainer {
-width:300px;
-height: 60px;
-background-color: rgb(0, 153, 255);
-justify-content: center;
-align-items: center;
-border-radius: 5%;
-display: flex;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 20px;
-border-style: none;
-
-}
+    width:300px;
+    height: 60px;
+    background-color: rgb(0, 153, 255);
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    }
 
 
 @media screen and (max-width: 600px) {
@@ -132,52 +128,52 @@ border-style: none;
 
 
 @media screen and (max-width: 420px) {
-    
-    .cartAndQty {
-        margin-right: 15px;
-    }
 
-    .title {
-        font-size: 15px;
-        margin-left: 15px;
-    }  
-    
-    .myPage {
-        font-size: 20px;
-    }
+.cartAndQty {
+    margin-right: 15px;
+}
 
-    .qty {
-        font-size: 30px;
-    }
-    
-    .cart {
-        font-size: 20px;
-    }    
+.title {
+    font-size: 15px;
+    margin-left: 15px;
+}  
+
+.myPage {
+    font-size: 20px;
+}
+
+.qty {
+    font-size: 30px;
+}
+
+.cart {
+    font-size: 20px;
+}    
 }
 
 @media screen and (max-width: 320px) {
-    
-    .cartAndQty {
-        margin-right: 10px;
-    }
 
-    .title {
-        font-size: 13px;
-        margin-left: 10px;
-        
-    }  
-    
-    .myPage {
-        font-size: 18px;
-        margin-left: 5px;
-        margin-right: 20px;
-    }
+.cartAndQty {
+    margin-right: 10px;
+}
 
-    .qty {
-        font-size: 28px;
-    }
+.title {
+    font-size: 13px;
+    margin-left: 10px;
     
-    .cart {
-        font-size: 18px;
-    }    
+}  
+
+.myPage {
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.qty {
+    font-size: 28px;
+}
+
+.cart {
+    font-size: 18px;
+}    
 }

@@ -103,11 +103,12 @@ main {
     align-items: center;
     justify-content: center;
     padding-top: 10px;
+    width: 160px;
+    height: 60%;
     }
     
     .productImg {
-        width: 160px;
-        height: 60%;
+        width: 100%;
     }
 
 h2 {

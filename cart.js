@@ -69,7 +69,7 @@ let imageContainer = document.createElement("div")
 let productImg = document.createElement("img")
     productImg.classList.add("productImg")
     productImg.src= "/assets/" + shopping.Image 
-    div.appendChild(productImg)
+    imageContainer.appendChild(productImg)
 
 // PhoneModel // Add the list to innerText!    
 let phoneModelText = document.createElement("h2")
@@ -86,8 +86,13 @@ let priceItem = document.createElement("h3")
 let buttonContainer = document.createElement("button")
     buttonContainer.classList.add("buttonContainer")
     div.appendChild(buttonContainer)
+ 
+// icon Trash // not working!    
+/* let iconTrash = document.createElement("i")
+    iconTrash.classList.add("far fa-trash-alt")
+    buttonContainer.appendChild(iconTrash) */
 
-// ButtonText // Add trash-icon
+// ButtonText // Need to add trash-icon
 let buttonText = document.createElement("h4")
     buttonText.innerText = "Ta bort"
     buttonContainer.appendChild(buttonText)
