@@ -75,7 +75,7 @@ function createProduct(product) {
     div.appendChild(buttonContainer)
 
     function addItem() {
-        alert ("Hej")
+        alert ("Produkten ska adderas i varukorgen")
     }
 
     // Button Text
