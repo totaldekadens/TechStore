@@ -134,7 +134,7 @@ let buttonCompletePurchase = document.createElement("div")
     buttonCompletePurchase.style = "cursor:pointer" 
 
 function completeTheOrder() {
-    alert("Den här funktionen ta bort allt från kundvagnen senare i processen")
+    alert("Den här funktionen tar bort allt från kundvagnen senare i processen")
 }
 
 

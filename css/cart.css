@@ -215,6 +215,8 @@ h4 {
     margin-right: 8px;
 }
 
+}
+
 @media screen and (max-width: 600px) {
 .title {
     font-size: 20px;
@@ -286,63 +288,65 @@ h4 {
 
 @media screen and (max-width: 420px) {
     
-    .cartAndQty {
-        margin-right: 15px;
-    }
+.cartAndQty {
+    margin-right: 15px;
+}
 
-    .title {
-        font-size: 15px;
-        margin-left: 15px;
-    }  
-    
-    .myPage {
-        font-size: 20px;
-    }
+.title {
+    font-size: 15px;
+    margin-left: 15px;
+}  
 
-    .qty {
-        font-size: 30px;
-    }
-    
-    .cart {
-        font-size: 20px;
-    }
+.myPage {
+    font-size: 20px;
+}
 
-    .cartTitle {
-        margin-top: 80px;
-        font-size: 25px;
-    }
+.qty {
+    font-size: 30px;
+}
 
-    .productImg {
-        width: 80px;
-    }
+.cart {
+    font-size: 20px;
+}
+
+.cartTitle {
+    margin-top: 80px;
+    font-size: 25px;
+}
+
+.productImg {
+    width: 80px;
+}
 
 
 }
 
+
+
 @media screen and (max-width: 320px) {
     
-    .cartAndQty {
-        margin-right: 10px;
-    }
+.cartAndQty {
+    margin-right: 10px;
+}
 
-    .title {
-        font-size: 13px;
-        margin-left: 10px;
-        
-    }  
+.title {
+    font-size: 13px;
+    margin-left: 10px;
     
-    .myPage {
-        font-size: 18px;
-        margin-left: 5px;
-        margin-right: 20px;
-    }
+}  
 
-    .qty {
-        font-size: 28px;
-    }
-    
-    .cart {
-        font-size: 18px;
-    }    
+.myPage {
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.qty {
+    font-size: 28px;
+}
+
+.cart {
+    font-size: 18px;
+}    
 
 }
