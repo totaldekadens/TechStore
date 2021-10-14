@@ -86,12 +86,11 @@ function createProduct(product) {
     buttonContainer.appendChild(buttonText)
     
     // Button Icon
+    
     let buttonIcon = document.createElement("div") 
     buttonIcon.classList.add("buttonIcon")
     buttonIcon.innerHTML = '<i class="fas fa-cart-arrow-down"></i>'
     buttonContainer.appendChild(buttonIcon)
-
-    console.log(buttonIcon)
     
 return div
 
