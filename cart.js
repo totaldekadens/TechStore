@@ -30,11 +30,22 @@ let shoppingBag = [
 // Taking out main from html
 let main = document.getElementsByTagName("main")[0]
 
+// container to cart title and button 
+let titleContainer = document.createElement("div")
+    titleContainer.classList.add("titleContainer")
+    main.appendChild(titleContainer)
+
+// Create cart Icon
+let cartIcon = document.createElement("div")
+    cartIcon.classList.add("cartIcon")
+    titleContainer.appendChild(cartIcon)
+    cartIcon.innerHTML = '<i class="fas fa-shopping-cart"></i>'
+
 // Create Title "Kundvagn"
 let title = document.createElement("h1")
 title.classList.add("cartTitle")
 title.innerText = "Kundvagn"
-main.appendChild(title)
+titleContainer.appendChild(title)
 
 // Container that wraps all the shopping items together
 let wrapper = document.createElement("div")
@@ -68,7 +79,7 @@ let imageContainer = document.createElement("div")
 // Image // Add the list to source!    
 let productImg = document.createElement("img")
     productImg.classList.add("productImg")
-    productImg.src= "/assets/" + shopping.Image 
+    productImg.src= "./assets/" + shopping.Image 
     imageContainer.appendChild(productImg)
 
 // PhoneModel // Add the list to innerText!    
@@ -107,7 +118,7 @@ let divTrash = document.createElement("div")
     buttonContainer.appendChild(divButtonText)
 
 // ButtonText // Need to add trash-icon
-let buttonText = document.createElement("h4")
+let buttonText = document.createElement("p")
     buttonText.innerText = "Ta bort"
     divButtonText.appendChild(buttonText)
 
@@ -146,7 +157,7 @@ let divComplete = document.createElement("div")
 
 
 // ButtonCompletePurchaseText // Add a complete-icon
-let buttonCompletePurchaseText = document.createElement("h4")
+let buttonCompletePurchaseText = document.createElement("p")
     buttonCompletePurchaseText.innerText = "Slutför ditt köp"
     buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
 
