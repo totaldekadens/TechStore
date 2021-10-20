@@ -59,7 +59,6 @@ header {
 
 main {
     margin-top: 50px;
-    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,10 +114,12 @@ width: 300px
     align-items: center;
     width: 100%;
     margin-top: 50px;
+    
+    background-image: linear-gradient(white, whitesmoke);
 }
 
 .productImg {
-    width: 160px;
+    width: 150px;
 }
 
 h2,h3 {
@@ -127,23 +128,30 @@ h2,h3 {
 }
 
 .buttonContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    
+    width: 250px;
+    height: 40px;
+    margin-bottom: 100px;
+
     background-color: #5391fe;
     border: none;
     border-radius: 10px;
-    width: 250px;
     cursor: pointer; 
+    font-size: 16px
 }
 
 .buttonContainer:hover {
-    background-color: blue;
+    background-color: rgb(73, 73, 73);
 }
 
-/* 
-.buttonText {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
+.buttonIcon {
+    color: white;
+    padding-right: 15px;
 }
-*/
 
 @media screen and (max-width: 600px) {
 .title {
@@ -163,7 +171,12 @@ h2,h3 {
 }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
+
+h1,h2 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 h2,h3 {
     font-size: 12px;
