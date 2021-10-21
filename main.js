@@ -13,11 +13,9 @@ function loadProducts() {
 }
 
     loadProducts();
-    // This would also be a good place to initialize other parts of the UI
 
 
 /** Uses the loaded products data to create a visible product list on the website */
-
 function addProductsToWebpage() {
     let main = document.getElementsByTagName("main")[0]
 
@@ -67,16 +65,24 @@ function createProduct(product) {
     priceContainer.innerText = product.price + " kr"
     div.appendChild(priceContainer)
 
-    // Create container for button
 
+    // Create container for button and send the unique value of the card to addToCart
     let buttonContainer = document.createElement("div")
     buttonContainer.classList.add("buttonContainer")
-    buttonContainer.addEventListener("click", addItem) 
-    div.appendChild(buttonContainer)
+    buttonContainer.title = product.title;           // title (your keyword) = "title" from the card 
+    buttonContainer.onclick = function() {          // onclick - function() 
+    addToCart(this.title);                           // (this.title) =  (product.title)  // Takes the title (this is the one you want to compare) from the card and sending it in to "addToCart"
 
-    function addItem() {
-        alert ("Produkten ska adderas i varukorgen")
-    }
+    console.log(this)
+    console.log(product)
+    console.log(this.title)
+    console.log(product.title) 
+    
+};
+
+console.log()
+
+    div.appendChild(buttonContainer)
 
     // Button Text
     
@@ -95,6 +101,78 @@ function createProduct(product) {
 return div
 
 }
+
+
+// Creating an empty list
+let cart = []
+
+
+// Will add item to local storage and my cart
+function addToCart(title) {   // (title) = represent product.title from the card 
+    
+    // Will use productToAdd as a reference to "title".
+    let productToAdd = title;
+    
+                        /* console.log(productToAdd) */
+
+    // creating a loop to find the unique product from listOfProducts
+    for (let i = 0; i < listOfProducts.length; i++) {
+      
+        // Searching for the same title. If they sync the item will be pushed from "listOfProducts" to the "cart"
+        if (productToAdd == listOfProducts[i].title) {
+        
+            cart.push(listOfProducts[i]);
+        
+                /*      console.log(productToAdd)
+                        console.log(listOfProducts[i])
+                        console.log(listOfProducts[i].title) */
+
+        // adding the cart to localstorage
+        let myAddedItems = JSON.stringify(cart);    
+        localStorage.addItem = myAddedItems;
+
+        // Fetching the cart from localStorage
+        let AddedToCart = JSON.parse(localStorage.getItem("addItem"));
+
+        // Calling on the function "counter"
+        counter(); 
+      }
+    }
+  }
+
+
+  //adding + 1 to my cart everytime I click "Lägg till i kundvagnen" . 
+     function counter() {
+        let counting = document.getElementById("qty").innerHTML = cart.length;
+    
+        let cartItems = JSON.stringify(counting);
+        localStorage.count = cartItems;
+
+  } 
+
+  let totalCount = JSON.parse(localStorage.getItem("count"));
+  document.getElementById("qty").innerHTML = totalCount
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // TODO: Remove the console.log and these comments when you've read them.
     
