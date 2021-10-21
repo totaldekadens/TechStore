@@ -1,140 +1,145 @@
 
-// Lista för att testa
-let shoppingBag = [
-    {
-        title: "iPhone X",
-        Description: "Last years phone from Apple with a beautiful all display front.",
-        Image: "iphoneX.png",
-        Price: 4999
-    },{
-        title: "iPhone 13",
-        Description: "Last years phone from Apple with a beautiful all display front.",
-        Image: "iphone13.png",
-        Price: 10299 
-    },{
-        title: "iPhone 13 Pro",
-        Description: "Last years phone from Apple with a beautiful all display front.",
-        Image: "iphone13Pro.png",
-        Price: 12566
-    },{
-        title: "Samsung S22",
-        Description: "Last years phone from Apple with a beautiful all display front.",
-        Image: "SamsungS22.png",
-        Price: 6000
-    }
-]
+// Fetching the list from localStorage
+let shoppingBag = JSON.parse(localStorage.getItem("addItem"));
+
+let totalCount = JSON.parse(localStorage.getItem("count"));
+document.getElementById("qty").innerHTML = totalCount
 
 
 
-
-// Taking out main from html
-let main = document.getElementsByTagName("main")[0]
-
-// container to cart title and button 
-let titleContainer = document.createElement("div")
-    titleContainer.classList.add("titleContainer")
-    main.appendChild(titleContainer)
-
-// Create cart Icon
-let cartIcon = document.createElement("div")
-    cartIcon.classList.add("cartIcon")
-    titleContainer.appendChild(cartIcon)
-    cartIcon.innerHTML = '<i class="fas fa-shopping-cart"></i>'
-
-// Create Title "Kundvagn"
-let title = document.createElement("h1")
-title.classList.add("cartTitle")
-title.innerText = "Kundvagn"
-titleContainer.appendChild(title)
-
-// Container that wraps all the shopping items together
-let wrapper = document.createElement("div")
-    wrapper.classList.add("wrapper")
-    main.appendChild(wrapper)
+                                        /* console.log(shoppingBag)
+                                        console.log(totalCount) */
 
 
+// Adding the products to webpage
+function renderCart() {
 
 
-
-
-
-
-// Loop for the list with added items into the shopping cart    
-for(let i = 0 ; i < shoppingBag.length ; i++ ) {
-
-
-let shopping = shoppingBag[i]  
-
-
-// Container to added item
-let div = document.createElement("div")
-    div.classList.add("containerAddedItem")
-    wrapper.appendChild(div)
-
-// Container to image 
-let imageContainer = document.createElement("div")
-    imageContainer.classList.add("imageContainer")
-    div.appendChild(imageContainer)
-
-// Image // Add the list to source!    
-let productImg = document.createElement("img")
-    productImg.classList.add("productImg")
-    productImg.src= "./assets/" + shopping.Image 
-    imageContainer.appendChild(productImg)
-
-// PhoneModel // Add the list to innerText!    
-let phoneModelText = document.createElement("h2")
-    phoneModelText.innerText = shopping.title
-    div.appendChild(phoneModelText)
-
-
-// Price on phone // Add the list to innerText!     
-let priceItem = document.createElement("h3")
-    priceItem.innerText = shopping.Price + " kr"
-    div.appendChild(priceItem)
-
-// Button Container
-let buttonContainer = document.createElement("div")
-    buttonContainer.classList.add("buttonContainer")
-    div.appendChild(buttonContainer)
-    buttonContainer.addEventListener("click", deleteItem) 
-    buttonContainer.style = "cursor:pointer" 
+    // Taking out main from html
+    let main = document.getElementsByTagName("main")[0]
     
-// This function shall delete an item from the array (shoppingbag)    
-    function deleteItem() {
-     alert("Den här funktionen skall ta bort produkten senare i processen")
-}
- 
-
- // div to trashcan in buttoncontainer
-let divTrash = document.createElement("div")
-    divTrash.classList.add("divTrash")
-    buttonContainer.appendChild(divTrash)
-    divTrash.innerHTML = '<i class="far fa-trash-alt"></i>'
-
-// div to text in buttoncontainer
-    let divButtonText = document.createElement("div")
-    divButtonText.classList.add("divButtonText")
-    buttonContainer.appendChild(divButtonText)
-
-// ButtonText // Need to add trash-icon
-let buttonText = document.createElement("p")
-    buttonText.innerText = "Ta bort"
-    divButtonText.appendChild(buttonText)
-
-}
+    // Will not make a duplicate when clearing the cart from local Storage / Victor, var det så här du menade? 
+    main.innerHTML = "";
 
 
+    // container to cart title and button 
+    let titleContainer = document.createElement("div")
+        titleContainer.classList.add("titleContainer")
+        main.appendChild(titleContainer)
 
+    // Create cart Icon
+    let cartIcon = document.createElement("div")
+        cartIcon.classList.add("cartIcon")
+        titleContainer.appendChild(cartIcon)
+        cartIcon.innerHTML = '<i class="fas fa-shopping-cart"></i>'
 
+    // Create Title "Kundvagn"
+        let title = document.createElement("h1")
+        title.classList.add("cartTitle")
+        title.innerText = "Kundvagn"
+        titleContainer.appendChild(title)
+
+    // Container that wraps all the shopping items together
+    let wrapper = document.createElement("div")
+        wrapper.classList.add("wrapper")
+        main.appendChild(wrapper)
 
 
 
-// totalPrice // Add sum of the list in innerText "4999"!
-let totalPrice = document.createElement("h3")
-    totalPrice.innerText = "Totalt pris:" + " 4999" + " kr"  
-    totalPrice.classList.add("totalPrice")  
-    main.appendChild(totalPrice)
+
+
+    // Loop for the list with added items into the shopping cart  
+    for(let i = 0 ; i < shoppingBag.length ; i++ ) {
+
+
+        let shopping = shoppingBag[i]  
+
+
+
+
+
+        // Container to added item
+        let div = document.createElement("div")
+            div.classList.add("containerAddedItem")
+            wrapper.appendChild(div)
+
+        // Container to image 
+        let imageContainer = document.createElement("div")
+            imageContainer.classList.add("imageContainer")
+            div.appendChild(imageContainer)
+
+        // Image // Add the list to source!    
+        let productImg = document.createElement("img")
+            productImg.classList.add("productImg")
+            productImg.src="/assets/" + shopping.image 
+            imageContainer.appendChild(productImg)
+
+        // PhoneModel    
+        let phoneModelText = document.createElement("h2")
+            phoneModelText.innerText = shopping.title
+            div.appendChild(phoneModelText)
+
+
+        // Price on phone     
+        let priceItem = document.createElement("h3")
+            priceItem.innerText = shopping.price + " kr"
+            div.appendChild(priceItem)
+
+
+
+
+
+
+
+
+            // Container to "ta bort"-button
+        let buttonContainer = document.createElement("div")
+            buttonContainer.classList.add("buttonContainer")
+            buttonContainer.style = "cursor:pointer" 
+            buttonContainer.title = shopping.title;
+            buttonContainer.onclick = function() {
+            deleteItem(this.title); 
+
+/*              console.log(this)
+                console.log(shopping)
+                console.log(this.title)
+                console.log(shopping.title) */
+            }; 
+
+            div.appendChild(buttonContainer)
+        
+        // div to trashcan in buttoncontainer
+        let trashIcon = document.createElement("div")
+            trashIcon.classList.add("trashIcon")
+            buttonContainer.appendChild(trashIcon)
+            trashIcon.innerHTML = '<i class="far fa-trash-alt"></i>'
+
+        // Container to text in buttoncontainer // Onödig? 
+        let divButtonText = document.createElement("div")
+            divButtonText.classList.add("divButtonText")
+            buttonContainer.appendChild(divButtonText)
+
+        // ButtonText
+        let buttonText = document.createElement("p")
+            buttonText.innerText = "Ta bort"
+            divButtonText.appendChild(buttonText)
+
+
+
+        // sum the prices from the list
+        let totalSum = shoppingBag.reduce(function (accumulator, item) {
+            return accumulator + item.price;
+        }, 0);
+                    /* console.log(totalSum) */
+
+        // totalPrice . Fetching the sum from "totalSum"
+        let totalPrice = document.createElement("h3")
+            totalPrice.innerText = totalSum + "kr"  
+            totalPrice.classList.add("totalPrice")  
+            main.appendChild(totalPrice)
+    }
+
+
 
 
 // ButtonCompletePurchase
@@ -144,10 +149,6 @@ let buttonCompletePurchase = document.createElement("div")
     buttonCompletePurchase.addEventListener("click", completeTheOrder) 
     buttonCompletePurchase.style = "cursor:pointer" 
 
-function completeTheOrder() {
-    alert("Den här funktionen tar bort allt från kundvagnen senare i processen")
-}
-
 
 // Container to check-icon    
 let divComplete = document.createElement("div")
@@ -156,10 +157,117 @@ let divComplete = document.createElement("div")
     buttonCompletePurchase.appendChild(divComplete)
 
 
-// ButtonCompletePurchaseText // Add a complete-icon
+// ButtonCompletePurchaseText 
 let buttonCompletePurchaseText = document.createElement("p")
     buttonCompletePurchaseText.innerText = "Slutför ditt köp"
     buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
 
 
+}
  
+
+
+
+
+
+
+
+// This function will delete the object from the array (shoppingBag)   
+function deleteItem(title) {
+
+     let productToDelete = title;
+
+    for (let i = 0; i < shoppingBag.length; i++) {
+
+        // comparing the object towards the list. If true:
+        if (productToDelete == shoppingBag[i].title) {
+            
+                        /*  console.log(productToDelete)
+                            console.log(shoppingBag[i]) */
+                        /*  console.log(shoppingBag) */
+
+                // Deletes the unique item from the list
+                shoppingBag.splice(i, 1);
+                
+                // Updates the key "addItem" in localStorage
+                let myAddedItems = JSON.stringify(shoppingBag);
+                localStorage.addItem = myAddedItems;
+
+                // Calling the function deleteIt
+                deleteIt();
+        }
+    } 
+}
+
+function deleteIt() {
+
+    // fetch the updated list from localStorage
+    let shoppingBag = JSON.parse(localStorage.getItem("addItem"));
+    // Puts the new value of the list into "wrapper" (container to the products)
+    let wrapper = document.getElementsByClassName("wrapper")[0].innerHTML = shoppingBag 
+
+    // Updates the quantity next to the cart with the the lists length.
+     let counting = document.getElementById("qty").innerHTML = shoppingBag.length; 
+    
+    // Updates "count" in localstorage
+    let cartItems = JSON.stringify(counting);
+    localStorage.count = cartItems;
+
+    // / fetch the updated quantity from localStorage
+    let totalCount = JSON.parse(localStorage.getItem("count"));
+    
+    // Calling the function "renderCart"
+    renderCart(); 
+
+    // If my shoppingbag is empty:
+    if (shoppingBag == [] || totalCount == 0) {
+        localStorage.clear();
+        alert("Nu är din kundvagn tom!")
+        
+        // works but not works. I get the result I want, but i getting errors in the console
+        let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
+        let totalPrice = document.getElementsByClassName("totalPrice")[0].innerHTML = shoppingBag  // Getting an error. Check!     
+    }
+}
+
+
+
+
+
+
+
+// this function will clear localStorage and the products from webpage
+function completeTheOrder() {
+
+    localStorage.clear();
+
+    updateCartWhenComplete();
+
+}
+
+
+function updateCartWhenComplete() {
+
+    // Vill ta bort samtliga förutom kundvagnen.  Vet att det finns ett smidigare sätt. Detta är en nödlösning :P      
+    let shoppingBag = JSON.parse(localStorage.getItem("addItem"));
+    
+    let wrapper = document.getElementsByClassName("wrapper")[0].innerHTML = shoppingBag
+    let totalPrice = document.getElementsByClassName("totalPrice")[0].innerHTML = shoppingBag // Blir knas just nu då summeringen inte är gjord på totalen. 
+    let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
+
+
+    let totalCount = JSON.parse(localStorage.getItem("count"));
+    document.getElementById("qty").innerHTML = totalCount
+
+
+    alert("Tack för din beställning!")
+
+    }
+
+
+
+
+
+
+// Calling this function when the window opens
+window.addEventListener("load", renderCart)
