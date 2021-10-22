@@ -126,20 +126,20 @@ function renderCart() {
 
 
 
-        // sum the prices from the list
-        let totalSum = shoppingBag.reduce(function (accumulator, item) {
-            return accumulator + item.price;
-        }, 0);
-                    /* console.log(totalSum) */
 
-        // totalPrice . Fetching the sum from "totalSum"
-        let totalPrice = document.createElement("h3")
-            totalPrice.innerText = totalSum + "kr"  
-            totalPrice.classList.add("totalPrice")  
-            main.appendChild(totalPrice)
     }
 
+// sum the prices from the list
+let totalSum = shoppingBag.reduce(function (accumulator, item) {
+    return accumulator + item.price;
+}, 0);
+            /* console.log(totalSum) */
 
+// totalPrice . Fetching the sum from "totalSum"
+let totalPrice = document.createElement("h3")
+    totalPrice.innerText = "Totalt pris: " + totalSum + " kr"  
+    totalPrice.classList.add("totalPrice")  
+    main.appendChild(totalPrice)
 
 
 // ButtonCompletePurchase
