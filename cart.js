@@ -7,10 +7,6 @@ document.getElementById("qty").innerHTML = totalCount
 
 
 
-                                        /* console.log(shoppingBag)
-                                        console.log(totalCount) */
-
-
 // Adding the products to webpage
 function renderCart() {
 
@@ -71,7 +67,7 @@ function renderCart() {
         // Image // Add the list to source!    
         let productImg = document.createElement("img")
             productImg.classList.add("productImg")
-            productImg.src="/assets/" + shopping.image 
+            productImg.src="./assets/" + shopping.image 
             imageContainer.appendChild(productImg)
 
         // PhoneModel    
@@ -251,6 +247,8 @@ function updateCartWhenComplete() {
     // Vill ta bort samtliga förutom kundvagnen.  Vet att det finns ett smidigare sätt. Detta är en nödlösning :P      
     let shoppingBag = JSON.parse(localStorage.getItem("addItem"));
     
+
+
     let wrapper = document.getElementsByClassName("wrapper")[0].innerHTML = shoppingBag
     let totalPrice = document.getElementsByClassName("totalPrice")[0].innerHTML = shoppingBag // Blir knas just nu då summeringen inte är gjord på totalen. 
     let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
@@ -260,12 +258,21 @@ function updateCartWhenComplete() {
     document.getElementById("qty").innerHTML = totalCount
 
 
+
     alert("Tack för din beställning!")
+
+    
 
     }
 
 
 
+function updateLocalStorage() {
+
+
+    
+
+}
 
 
 
