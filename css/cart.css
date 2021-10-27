@@ -43,18 +43,13 @@ header {
     justify-content: center;
     align-items: center;
     margin-right: 30px;
-    font-size: 35px;
+    font-size: 50px;
     gap: 10px;
 }
 
 .myPage {
     font-size: 37px;
     margin-right: 30px;
-}
-
-.qty {
-    margin-right: 15px;
-    font-size: 48px;
 }
 
 .cart {
@@ -162,9 +157,7 @@ h3 {
     align-items: center;
     margin-right: 15px;
     font-size: 20px;
-
 }
-
 
 .totalPrice {
     margin-top: 30px;
@@ -193,66 +186,7 @@ h3 {
     font-size: 30px;
 }
 
-@media screen and (max-width: 1350px) {
-
-.containerAddedItem {
-    height: 370px;
-    padding-top: 10px;
-}
-
-.imageContainer {
-    width: 120px;
-}
-
-.productImg {
-    object-fit: contain;
-}
-
-h2 {
-    font-size: 30px;
-    margin-top: 7px;
-}
-
-h3 {
-    font-size: 15px;
-}
-
-h4 {
-    font-size: 18px;
-}
-
-.titleContainer {
-    margin-top: 120px;
-}
-.cartTitle {
-    font-size: 45px;
-}
-
-.buttonContainer {
-    height: 50px;
-    width: 150px;
-    font-size: 22px;
-}
-
-.trashIcon {
-    margin-right: 15px;
-    font-size: 20px;
-}
-
-.buttonCompletePurchase {
-    width: 220px;
-    height: 50px;
-    font-size: 20px;
-    margin-top: 30px;
-}
-
-.divComplete {
-    font-size: 25px;
-}
-
-}
-
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1400px) {
 
 .title {
     font-size: 20px;
@@ -263,8 +197,9 @@ h4 {
     font-size: 30px;
 }
 
-.qty {
-    font-size: 35px;
+.cartAndQty {
+    font-size: 43px;
+    gap: 8px;
 }
 
 .cart {
@@ -305,6 +240,10 @@ h2 {
     margin-top: 0px;
 }
 
+h3 {
+    font-size: 13px; 
+}
+
 .buttonContainer {
     width: 100px;
     height: 35px;
@@ -321,6 +260,19 @@ h2 {
     font-size: 22px;
 }
 
+.buttonCompletePurchase {
+    width: 240px;
+    height: 60px;
+    font-size: 23px;
+
+}
+
+.divComplete {
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+
 }
 
 @media screen and (max-width: 680px) {
@@ -332,8 +284,9 @@ h2 {
     font-size: 25px;
 }
 
-.qty {
-    font-size: 35px;
+.cartAndQty {
+    font-size: 37px;
+    gap: 8px;
 }
 
 .cart {
@@ -344,13 +297,11 @@ h2 {
     height: 180px;
     padding-left: 10px;
     padding-right: 10px;
-    
 }
 
 .imageContainer {
     width: 60px;
     margin-bottom: 3px;
-    
 }
 
 h2 {
@@ -412,14 +363,10 @@ h4 {
 
 @media screen and (max-width: 480px) {
     
-
-.containerAddedItem {
-    height: 200px;
-    margin-top: 0px;
-    
-}
 .cartAndQty {
     margin-right: 15px;
+    font-size: 30px;
+    gap: 8px;
 }
 
 .title {
@@ -457,19 +404,6 @@ h4 {
     font-size: 20px;
 }
 
-.imageContainer {
-    width: 60px;
-}
-
-
-h2 {
-    font-size: 19px;
-}
-
-.buttonContainer {
-    margin-top: 11px;
-}
-
 .totalPrice {
     font-size: 18px;
     margin-top: 20px;
@@ -481,25 +415,23 @@ h2 {
     font-size: 15px;
 }
 
-
 .divComplete {
     font-size: 18px;
 }
 
 }
 
-
-
 @media screen and (max-width: 320px) {
     
-.cartAndQty {
-    margin-right: 10px;
-}
+    .cartAndQty {
+        margin-right: 10px;
+        font-size: 25px;
+        gap: 5px;
+    }
 
 .title {
     font-size: 13px;
     margin-left: 10px;
-    
 }  
 
 .myPage {
@@ -516,21 +448,8 @@ h2 {
     font-size: 18px;
 }    
 
-.containerAddedItem {
-    height: 200px
-}
-
-.imageContainer {
-    width: 65px;
-}
-
 h2 {
-    font-size: 15px;
-    
-}
-
-.buttonContainer {
-    margin-top: 15px;
+    font-size: 15px;  
 }
 
 .totalPrice {

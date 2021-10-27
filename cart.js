@@ -7,10 +7,6 @@ document.getElementById("qty").innerHTML = totalCount
 
 
 
-                                        /* console.log(shoppingBag)
-                                        console.log(totalCount) */
-
-
 // Adding the products to webpage
 function renderCart() {
 
@@ -44,19 +40,11 @@ function renderCart() {
         wrapper.classList.add("wrapper")
         main.appendChild(wrapper)
 
-
-
-
-
     // Loop for the list with added items into the shopping cart  
     for(let i = 0 ; i < shoppingBag.length ; i++ ) {
 
 
         let shopping = shoppingBag[i]  
-
-
-
-
 
         // Container to added item
         let div = document.createElement("div")
@@ -71,7 +59,7 @@ function renderCart() {
         // Image // Add the list to source!    
         let productImg = document.createElement("img")
             productImg.classList.add("productImg")
-            productImg.src="/assets/" + shopping.image 
+            productImg.src="./assets/" + shopping.image 
             imageContainer.appendChild(productImg)
 
         // PhoneModel    
@@ -86,12 +74,6 @@ function renderCart() {
             div.appendChild(priceItem)
 
 
-
-
-
-
-
-
             // Container to "ta bort"-button
         let buttonContainer = document.createElement("div")
             buttonContainer.classList.add("buttonContainer")
@@ -99,11 +81,6 @@ function renderCart() {
             buttonContainer.title = shopping.title;
             buttonContainer.onclick = function() {
             deleteItem(this.title); 
-
-/*              console.log(this)
-                console.log(shopping)
-                console.log(this.title)
-                console.log(shopping.title) */
             }; 
 
             div.appendChild(buttonContainer)
@@ -124,16 +101,12 @@ function renderCart() {
             buttonText.innerText = "Ta bort"
             divButtonText.appendChild(buttonText)
 
-
-
-
     }
 
 // sum the prices from the list
-let totalSum = shoppingBag.reduce(function (accumulator, item) {
-    return accumulator + item.price;
+let totalSum = shoppingBag.reduce(function (sum, product) {
+    return sum + product.price;
 }, 0);
-            /* console.log(totalSum) */
 
 // totalPrice . Fetching the sum from "totalSum"
 let totalPrice = document.createElement("h3")
@@ -162,15 +135,8 @@ let buttonCompletePurchaseText = document.createElement("p")
     buttonCompletePurchaseText.innerText = "Slutför ditt köp"
     buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
 
-
 }
  
-
-
-
-
-
-
 
 // This function will delete the object from the array (shoppingBag)   
 function deleteItem(title) {
@@ -181,17 +147,12 @@ function deleteItem(title) {
 
         // comparing the object towards the list. If true:
         if (productToDelete == shoppingBag[i].title) {
-            
-                        /*  console.log(productToDelete)
-                            console.log(shoppingBag[i]) */
-                        /*  console.log(shoppingBag) */
-
+        
                 // Deletes the unique item from the list
                 shoppingBag.splice(i, 1);
                 
                 // Updates the key "addItem" in localStorage
-                let myAddedItems = JSON.stringify(shoppingBag);
-                localStorage.addItem = myAddedItems;
+                localStorage.setItem("addItem", JSON.stringify(shoppingBag)); 
 
                 // Calling the function deleteIt
                 deleteIt();
@@ -210,8 +171,7 @@ function deleteIt() {
      let counting = document.getElementById("qty").innerHTML = shoppingBag.length; 
     
     // Updates "count" in localstorage
-    let cartItems = JSON.stringify(counting);
-    localStorage.count = cartItems;
+    localStorage.setItem("count", JSON.stringify(counting));
 
     // / fetch the updated quantity from localStorage
     let totalCount = JSON.parse(localStorage.getItem("count"));
@@ -231,18 +191,11 @@ function deleteIt() {
 }
 
 
-
-
-
-
-
 // this function will clear localStorage and the products from webpage
 function completeTheOrder() {
 
     localStorage.clear();
-
     updateCartWhenComplete();
-
 }
 
 
@@ -255,17 +208,12 @@ function updateCartWhenComplete() {
     let totalPrice = document.getElementsByClassName("totalPrice")[0].innerHTML = shoppingBag // Blir knas just nu då summeringen inte är gjord på totalen. 
     let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
 
-
     let totalCount = JSON.parse(localStorage.getItem("count"));
     document.getElementById("qty").innerHTML = totalCount
-
 
     alert("Tack för din beställning!")
 
     }
-
-
-
 
 
 
