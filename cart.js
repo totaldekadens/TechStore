@@ -40,19 +40,11 @@ function renderCart() {
         wrapper.classList.add("wrapper")
         main.appendChild(wrapper)
 
-
-
-
-
     // Loop for the list with added items into the shopping cart  
     for(let i = 0 ; i < shoppingBag.length ; i++ ) {
 
 
         let shopping = shoppingBag[i]  
-
-
-
-
 
         // Container to added item
         let div = document.createElement("div")
@@ -82,12 +74,6 @@ function renderCart() {
             div.appendChild(priceItem)
 
 
-
-
-
-
-
-
             // Container to "ta bort"-button
         let buttonContainer = document.createElement("div")
             buttonContainer.classList.add("buttonContainer")
@@ -95,11 +81,6 @@ function renderCart() {
             buttonContainer.title = shopping.title;
             buttonContainer.onclick = function() {
             deleteItem(this.title); 
-
-/*              console.log(this)
-                console.log(shopping)
-                console.log(this.title)
-                console.log(shopping.title) */
             }; 
 
             div.appendChild(buttonContainer)
@@ -120,16 +101,12 @@ function renderCart() {
             buttonText.innerText = "Ta bort"
             divButtonText.appendChild(buttonText)
 
-
-
-
     }
 
 // sum the prices from the list
 let totalSum = shoppingBag.reduce(function (accumulator, item) {
     return accumulator + item.price;
 }, 0);
-            /* console.log(totalSum) */
 
 // totalPrice . Fetching the sum from "totalSum"
 let totalPrice = document.createElement("h3")
@@ -158,15 +135,8 @@ let buttonCompletePurchaseText = document.createElement("p")
     buttonCompletePurchaseText.innerText = "Slutför ditt köp"
     buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
 
-
 }
  
-
-
-
-
-
-
 
 // This function will delete the object from the array (shoppingBag)   
 function deleteItem(title) {
@@ -177,11 +147,7 @@ function deleteItem(title) {
 
         // comparing the object towards the list. If true:
         if (productToDelete == shoppingBag[i].title) {
-            
-                        /*  console.log(productToDelete)
-                            console.log(shoppingBag[i]) */
-                        /*  console.log(shoppingBag) */
-
+        
                 // Deletes the unique item from the list
                 shoppingBag.splice(i, 1);
                 
@@ -227,18 +193,11 @@ function deleteIt() {
 }
 
 
-
-
-
-
-
 // this function will clear localStorage and the products from webpage
 function completeTheOrder() {
 
     localStorage.clear();
-
     updateCartWhenComplete();
-
 }
 
 
@@ -247,32 +206,16 @@ function updateCartWhenComplete() {
     // Vill ta bort samtliga förutom kundvagnen.  Vet att det finns ett smidigare sätt. Detta är en nödlösning :P      
     let shoppingBag = JSON.parse(localStorage.getItem("addItem"));
     
-
-
     let wrapper = document.getElementsByClassName("wrapper")[0].innerHTML = shoppingBag
     let totalPrice = document.getElementsByClassName("totalPrice")[0].innerHTML = shoppingBag // Blir knas just nu då summeringen inte är gjord på totalen. 
     let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
 
-
     let totalCount = JSON.parse(localStorage.getItem("count"));
     document.getElementById("qty").innerHTML = totalCount
 
-
-
     alert("Tack för din beställning!")
 
-    
-
     }
-
-
-
-function updateLocalStorage() {
-
-
-    
-
-}
 
 
 
