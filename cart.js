@@ -104,8 +104,8 @@ function renderCart() {
     }
 
 // sum the prices from the list
-let totalSum = shoppingBag.reduce(function (accumulator, item) {
-    return accumulator + item.price;
+let totalSum = shoppingBag.reduce(function (sum, product) {
+    return sum + product.price;
 }, 0);
 
 // totalPrice . Fetching the sum from "totalSum"
@@ -152,8 +152,7 @@ function deleteItem(title) {
                 shoppingBag.splice(i, 1);
                 
                 // Updates the key "addItem" in localStorage
-                let myAddedItems = JSON.stringify(shoppingBag);
-                localStorage.addItem = myAddedItems;
+                localStorage.setItem("addItem", JSON.stringify(shoppingBag)); 
 
                 // Calling the function deleteIt
                 deleteIt();
@@ -172,8 +171,7 @@ function deleteIt() {
      let counting = document.getElementById("qty").innerHTML = shoppingBag.length; 
     
     // Updates "count" in localstorage
-    let cartItems = JSON.stringify(counting);
-    localStorage.count = cartItems;
+    localStorage.setItem("count", JSON.stringify(counting));
 
     // / fetch the updated quantity from localStorage
     let totalCount = JSON.parse(localStorage.getItem("count"));
