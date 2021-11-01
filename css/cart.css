@@ -26,9 +26,8 @@ header {
 
 .title {
     margin-left: 30px;
-    font-size: 26px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    font-size: 20px;
+    padding: 0px
 }
 
 .title a {
@@ -43,17 +42,17 @@ header {
     justify-content: center;
     align-items: center;
     margin-right: 30px;
-    font-size: 50px;
-    gap: 10px;
+    font-size: 43px;
+    gap: 8px;
 }
 
 .myPage {
-    font-size: 37px;
+    font-size: 30px;
     margin-right: 30px;
 }
 
 .cart {
-    font-size: 37px;
+    font-size: 30px;
 }
 
 main {
@@ -73,17 +72,17 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 130px;
+    margin-top: 90px;
 }
 
 .cartTitle {
     display: flex;
-    font-size: 60px;
+    font-size: 35px;
     
 }
 
 .cartIcon {
-    font-size: 50px;
+    font-size: 35px;
     margin-right: 20px;
 }
 
@@ -100,14 +99,18 @@ main {
     justify-content: flex-start;
     align-items: center;
     margin-top: 10px;
+    padding-top: 5px;
     padding-left: 15px;
     padding-right: 15px;
-    height: 430px;
-    border: 3px solid rgb(74, 122, 197);
+    height: 270px;
+    border: 2px solid rgb(74, 122, 197);
     border-radius: 5%;
     background-color: rgb(252, 252, 252);
-    margin-left: 5px;
-    margin-right: 5px;
+    transition: transform 0.2s;
+}
+
+.containerAddedItem:hover{
+    transform: scale(1.03);
 }
 
 .imageContainer {
@@ -115,8 +118,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 10px;
-    width: 140px;
+    width: 90px;
     height: 60%;
     }
     
@@ -126,156 +128,76 @@ main {
 
 h2 {
     margin: 0px;
-    font-size: 50px;
+    font-size: 28px;
 }   
 
 h3 {
     margin: 0px;
-}
-
-.buttonContainer {
-    width:150px;
-    height: 50px;
-    background-color: rgb(228, 80, 81);
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    display: flex;
-    font-size: 23px;
-    margin-top: 20px;
-    color: white;
-    
-    }
- 
-.buttonContainer:hover {
-    background-color: red;
-}
-    
-.trashIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
-    font-size: 20px;
-}
-
-.totalPrice {
-    margin-top: 30px;
-    font-size: 30px;
-}
-
-.buttonCompletePurchase {
-    width:300px;
-    height: 65px;
-    background-color: #5391fe;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    display: flex;
-    font-size: 30px;
-    margin-top: 50px;
-    color: white;
-}
-
-.buttonCompletePurchase:hover {
-    background-color: blue;
-}
-
-.divComplete {
-    margin-right: 25px;
-    font-size: 30px;
-}
-
-@media screen and (max-width: 1400px) {
-
-.title {
-    font-size: 20px;
-    padding: 0px
-}
-
-.myPage {
-    font-size: 30px;
-}
-
-.cartAndQty {
-    font-size: 43px;
-    gap: 8px;
-}
-
-.cart {
-    font-size: 30px;
-}
-
-.titleContainer {
-    margin-top: 90px;
-}
-
-.cartTitle {
-    font-size: 35px;
-}
-
-.cartIcon {
-    font-size: 35px;
-}
-
-.containerAddedItem {
-    height: 270px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-top: 5px;
-    border: 2px solid rgb(74, 122, 197);
-}    
-
-.imageContainer {
-    width: 90px;
-    padding-top: 0px;
-}
-
-.productImg {
-    object-fit: contain;
-}
-
-h2 {
-    font-size: 22px;
-    margin-top: 0px;
-}
-
-h3 {
     font-size: 13px; 
 }
 
 .buttonContainer {
     width: 100px;
-    height: 35px;
-    font-size: 15px;
+    height: 31px;
+    font-size: 14px;
     margin-top: 17px;
-    border-radius: 5px;
+    border-radius: 7px;
+    background-color: rgb(228, 80, 81);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: white;
+    }
+ 
+.buttonContainer:hover {
+    background-color: rgb(158, 0, 0);
 }
 
+.buttonContainer:active {
+    transform: scale(0.98);
+}
+    
 .trashIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 13px;
     font-size: 13px;
 }
 
 .totalPrice {
-    font-size: 22px;
+    margin-top: 30px;
+    font-size: 18px;
 }
 
 .buttonCompletePurchase {
-    width: 240px;
-    height: 60px;
-    font-size: 23px;
+    width:190px;
+    height: 40px;
+    background-color: #5391fe;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    display: flex;
+    font-size: 16px;
+    margin-top: 35px;
+    color: white;
+}
 
+.buttonCompletePurchase:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+.buttonCompletePurchase:active {
+    transform: scale(0.98);
 }
 
 .divComplete {
     margin-right: 20px;
-    font-size: 25px;
+    font-size: 16px;
 }
 
 
-}
-
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 700px) {
 .title {
     font-size: 20px;
 }  
@@ -294,7 +216,7 @@ h3 {
 }
 
 .containerAddedItem {
-    height: 180px;
+    height: 185px;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -305,8 +227,7 @@ h3 {
 }
 
 h2 {
-    font-size: 15px;
-    
+    font-size: 18px;  
 }
 
 h3 {
@@ -314,20 +235,22 @@ h3 {
 }
 
 .totalPrice {
-   font-size: 20px; 
+   font-size: 15px; 
+   margin-top: 20px;
 }
 
 .buttonContainer {
     width: 60px;
-    height: 23px;
+    height: 20px;
     margin-top: 8px;
-    font-size: 10px;
+    font-size: 8px;
+    border-radius: 5px;
     
 }
 
 .trashIcon {
     margin-right: 5px;
-    font-size: 8px;
+    font-size: 7px;
 }
 
 h4 {
@@ -347,16 +270,14 @@ h4 {
 }
 
 .buttonCompletePurchase {
-    width:200px;
+    margin-top: 27px;
+    width: 170px;
     height: 40px;
-    font-size: 18px;
-    border-radius: 5px;
 }
 
 
 .divComplete {
-    font-size: 20px;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 }
@@ -370,13 +291,13 @@ h4 {
 }
 
 .title {
-    font-size: 13px;
+    font-size: 15px;
     margin-left: 15px;
 }  
 
 .title h1 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .myPage {
@@ -392,7 +313,7 @@ h4 {
 }
 
 .titleContainer {
-    margin-top: 60px;
+    margin-top: 70px;
     margin-bottom: 10px;
 }
 
@@ -404,15 +325,12 @@ h4 {
     font-size: 20px;
 }
 
-.totalPrice {
-    font-size: 18px;
-    margin-top: 20px;
-}
 
 .buttonCompletePurchase {
     width:170px;
-    height: 35px;
+    height: 40px;
     font-size: 15px;
+    margin-top: 35px;
 }
 
 .divComplete {
@@ -423,11 +341,11 @@ h4 {
 
 @media screen and (max-width: 320px) {
     
-    .cartAndQty {
-        margin-right: 10px;
-        font-size: 25px;
-        gap: 5px;
-    }
+.cartAndQty {
+    margin-right: 10px;
+    font-size: 25px;
+    gap: 5px;
+}
 
 .title {
     font-size: 13px;
@@ -437,7 +355,7 @@ h4 {
 .myPage {
     font-size: 18px;
     margin-left: 5px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .qty {
@@ -447,13 +365,5 @@ h4 {
 .cart {
     font-size: 18px;
 }    
-
-h2 {
-    font-size: 15px;  
-}
-
-.totalPrice {
-    font-size: 15px;
-}
 
 }

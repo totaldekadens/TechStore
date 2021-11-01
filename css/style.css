@@ -191,7 +191,7 @@ h1 {
 }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 480px) {
 
 .cartAndQty {
     margin-right: 15px;
@@ -200,7 +200,8 @@ h1 {
 .title {
     font-size: 15px;
     margin-left: 15px;
-}  
+} 
+
 
 .myPage {
     font-size: 20px;
