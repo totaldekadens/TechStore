@@ -8,52 +8,49 @@ function loadProducts() {
     })
     .then(function(products) {
         listOfProducts = products;
-        addProductsToWebpage();
+        addProductsToWebpage(); // Ropar på functionen addProductsToWebpage, nedan..
     });
 }
 
     loadProducts();
+    // This would also be a good place to initialize other parts of the UI
 
 
 /** Uses the loaded products data to create a visible product list on the website */
-function addProductsToWebpage() {
-    let main = document.getElementsByTagName("main")[0]
+
+function addProductsToWebpage() { 
+    let main = document.getElementsByTagName("main")[0] // Added element
 
     for(i = 0; i < listOfProducts.length; i++) 
     {        
-    let CreatePackage = createProduct(listOfProducts[i])
-    main.appendChild(CreatePackage)
+    let productCard = createProductCard(listOfProducts[i])
+    main.appendChild(productCard) // Push element into HTML
     }
 }
 
 // Creating function for products 
-function createProduct(product) {
-
+function createProductCard(product) {
+    // console.log(product);
     // Creates container for all PhoneModels
+    let productCard = document.createElement("div") 
+    productCard.classList.add("phoneModelContainer")
 
-    let div = document.createElement("div")
-    div.classList.add("phoneModelContainer")
-
-    // Creates h1 for PhoneModels 
- 
-    let phoneModelText = document.createElement("h1")
+    // Creates h1 for PhoneModels  
+    let phoneModelText = document.createElement("h1") 
     phoneModelText.innerText = product.title
-    div.appendChild(phoneModelText)
+    productCard.appendChild(phoneModelText)
 
     // Creates PhoneDescription
-
     let phoneDescription = document.createElement("h2")
     phoneDescription.innerText = product.description
-    div.appendChild(phoneDescription)
+    productCard.appendChild(phoneDescription)
 
     // Creates container for Phoneimage
-
-    let imageContainer = document.createElement("div")
+    let imageContainer = document.createElement("productCard")
     imageContainer.classList.add("imageContainer")
-    div.appendChild(imageContainer)
+    productCard.appendChild(imageContainer)
 
     // Creates PhoneImage
-
     let productImg = document.createElement("img")
     productImg.src = "./assets/" + product.image
     productImg.classList.add("productImg")
@@ -63,96 +60,97 @@ function createProduct(product) {
 
     let priceContainer = document.createElement("h3")
     priceContainer.innerText = product.price + " kr"
-    div.appendChild(priceContainer)
+    productCard.appendChild(priceContainer)
 
-
-    // Create container for button and send the unique value of the card to addToCart
-    let buttonContainer = document.createElement("div")
+    // Create container for button
+    let buttonContainer = document.createElement("productCard") 
     buttonContainer.classList.add("buttonContainer")
-    buttonContainer.title = product.title;           // title (your keyword) = "title" from the card 
-    buttonContainer.onclick = function() {          // onclick - function() 
-    addToCart(this.title);                           // (this.title) =  (product.title)  // Takes the title (this is the one you want to compare) from the card and sending it in to "addToCart"
-
-    console.log(this)
-    console.log(product)
-    console.log(this.title)
-    console.log(product.title) 
     
-};
-
-console.log()
-
-    div.appendChild(buttonContainer)
-
-    // Button Text
+    // Add to cart button
+    let addToCartButton = document.createElement("button")
+    addToCartButton.title = product.title; 
+    buttonContainer.onclick = function () {addToCart(product);};
+    //addToCartButton.addEventListener("click", {addToCart(product);}) - Varför funkar inte detta?
+    productCard.appendChild(buttonContainer)  
+    productCard.append(phoneModelText, phoneDescription, priceContainer) 
     
-    let buttonText = document.createElement("h4")
-    buttonText.innerText = "Lägg till i kundvagnen"
-    buttonText.classList.add("white")
-    buttonContainer.appendChild(buttonText)
-    
-    // Button Icon
-    
-    let buttonIcon = document.createElement("div") 
-    buttonIcon.classList.add("buttonIcon")
-    buttonIcon.innerHTML = '<i class="fas fa-cart-arrow-down"></i>'
-    buttonContainer.appendChild(buttonIcon)
-    
-return div
+     // Button Text
+     let buttonText = document.createElement("p")
+     buttonText.innerText = "Lägg till i kundvagnen"
+     buttonText.classList.add("white")
+     buttonContainer.appendChild(buttonText)
+     
+     // Button Icon
+     
+     let buttonIcon = document.createElement("div") 
+     buttonIcon.classList.add("buttonIcon")
+     buttonIcon.innerHTML = '<i class="fas fa-cart-arrow-down"></i>' 
+     buttonContainer.appendChild(buttonIcon)
 
-}
+     return productCard
 
-
-// Creating an empty list
-let cart = []
-
-
-// Will add item to local storage and my cart
-function addToCart(title) {   // (title) = represent product.title from the card 
-    
-    // Will use productToAdd as a reference to "title".
-    let productToAdd = title;
-    
-                        /* console.log(productToAdd) */
-
-    // creating a loop to find the unique product from listOfProducts
-    for (let i = 0; i < listOfProducts.length; i++) {
-      
-        // Searching for the same title. If they sync the item will be pushed from "listOfProducts" to the "cart"
-        if (productToAdd == listOfProducts[i].title) {
-        
-            cart.push(listOfProducts[i]);
-        
-                /*      console.log(productToAdd)
-                        console.log(listOfProducts[i])
-                        console.log(listOfProducts[i].title) */
-
-        // adding the cart to localstorage
-        let myAddedItems = JSON.stringify(cart);    
-        localStorage.addItem = myAddedItems;
-
-        // Fetching the cart from localStorage
-        let AddedToCart = JSON.parse(localStorage.getItem("addItem"));
-
-        // Calling on the function "counter"
-        counter(); 
-      }
     }
-  }
-
-
-  //adding + 1 to my cart everytime I click "Lägg till i kundvagnen" . 
-     function counter() {
-        let counting = document.getElementById("qty").innerHTML = cart.length;
     
-        let cartItems = JSON.stringify(counting);
-        localStorage.count = cartItems;
+    //  A empty array 
+    let cart = []
+     
+    // This function collect and return cartlist from localStorage. If not existing, returns a empty array 
+    function addToCart(product) {     
+        let cart = localStorage.getItem("cart")
+        if(cart) {
+            cart = JSON.parse(cart)
+        } else {
+            cart = []
+        }
 
-  } 
+        let index = cart.findIndex((cartItem) => { // FindIndex fungerar om true 
+        
+            if(cartItem.product.title == product.title) {
+                return true // Hittar vi match kommer det ta indexet i listan och spara det
+            }
+            /* går att skriva det nedan också, det gör samma sak som ifsatsen
+            return cartItem.product.name == product.name  */
+        })
 
-  let totalCount = JSON.parse(localStorage.getItem("count"));
-  document.getElementById("qty").innerHTML = totalCount
-  
+            if(index < 0) {
+                cart.push({
+                    product: product, // om nyckeln och variablen heter samma räcker det att skriva product
+                    quantity: 1
+         })
+            } else {
+                cart[index].quantity++
+            }
+
+            localStorage.setItem("cart", JSON.stringify
+            (cart));
+
+            printNrOfElements();
+
+        // Calling the function
+        //printNrOfElements();
+        }
+
+// Creating the function for cartnumber
+ function printNrOfElements() {
+    let numberCart = document.getElementById("qty") //Detta är H1 från HTML () = document.querySelector(".h1") // Får ut h1:a
+    // För att hämta ut listan 
+    let cart = localStorage.getItem("cart")
+
+    // Vi kollar om det finns lista i cart
+    if(cart) {
+        cart = JSON.parse(cart)
+    } else { // Annars 
+        cart = []
+    }
+
+    let totalSum = cart.reduce((sum,item) => sum + item.quantity, 0);
+    
+    numberCart.innerText = totalSum
+
+ }
+
+ window.addEventListener("load", printNrOfElements)
+ 
 
 
 
