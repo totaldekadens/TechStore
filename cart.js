@@ -183,11 +183,22 @@ function deleteIt() {
     
     // If my shoppingbag is empty:
     if (cart == [] || cart == "") {
+        
         localStorage.clear();
+
+        let cart = JSON.parse(localStorage.getItem("cart"));
+        /// Grejerna försvinner inte!!
+        let wrapper = document.getElementsByClassName("wrapper")[0].style.display = "none"
+        let totalPrice = document.getElementsByClassName("totalPrice")[0].style.display = "none"
+        let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
+
         alert("Nu är din kundvagn tom!")
+
+        printNrOfElements();
+    } else {
+        renderCart();  
     }
 
-    renderCart(); 
 }
 
 // Clear local storage and clear the website from innecessary information
@@ -197,8 +208,8 @@ function completeTheOrder() {
 
     let cart = JSON.parse(localStorage.getItem("cart"));
     
-    let wrapper = document.getElementsByClassName("wrapper")[0].innerHTML = cart
-    let totalPrice = document.getElementsByClassName("totalPrice")[0].innerHTML = cart 
+    let wrapper = document.getElementsByClassName("wrapper")[0].style.display = "none"
+    let totalPrice = document.getElementsByClassName("totalPrice")[0].style.display = "none"
     let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
 
     alert("Tack för din beställning!")
