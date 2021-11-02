@@ -23,32 +23,32 @@ function addProductsToWebpage() {
 
     for(i = 0; i < listOfProducts.length; i++) 
     {        
-    let productCard = createProductCard(listOfProducts[i])
-    main.appendChild(productCard) // Push element into HTML
+    let CreatePackage = createProduct(listOfProducts[i])
+    main.appendChild(CreatePackage) // Push element into HTML
     }
 }
 
 // Creating function for products 
-function createProductCard(product) {
+function createProduct(product) {
     // console.log(product);
     // Creates container for all PhoneModels
-    let productCard = document.createElement("div") 
-    productCard.classList.add("phoneModelContainer")
+    let div = document.createElement("div") 
+    div.classList.add("phoneModelContainer")
 
     // Creates h1 for PhoneModels  
     let phoneModelText = document.createElement("h1") 
     phoneModelText.innerText = product.title
-    productCard.appendChild(phoneModelText)
+    div.appendChild(phoneModelText)
 
     // Creates PhoneDescription
     let phoneDescription = document.createElement("h2")
     phoneDescription.innerText = product.description
-    productCard.appendChild(phoneDescription)
+    div.appendChild(phoneDescription)
 
     // Creates container for Phoneimage
-    let imageContainer = document.createElement("productCard")
+    let imageContainer = document.createElement("div")
     imageContainer.classList.add("imageContainer")
-    productCard.appendChild(imageContainer)
+    div.appendChild(imageContainer)
 
     // Creates PhoneImage
     let productImg = document.createElement("img")
@@ -60,7 +60,7 @@ function createProductCard(product) {
 
     let priceContainer = document.createElement("h3")
     priceContainer.innerText = product.price + " kr"
-    productCard.appendChild(priceContainer)
+    div.appendChild(priceContainer)
 
     // Create container for button
     let buttonContainer = document.createElement("productCard") 
@@ -69,10 +69,10 @@ function createProductCard(product) {
     // Add to cart button
     let addToCartButton = document.createElement("button")
     addToCartButton.title = product.title; 
-    buttonContainer.onclick = function () {addToCart(product);};
+    buttonContainer.onclick = function () 
+    {addToCart(product);};
     //addToCartButton.addEventListener("click", {addToCart(product);}) - Varför funkar inte detta?
-    productCard.appendChild(buttonContainer)  
-    productCard.append(phoneModelText, phoneDescription, priceContainer) 
+    div.appendChild(buttonContainer)  
     
      // Button Text
      let buttonText = document.createElement("p")
@@ -87,7 +87,7 @@ function createProductCard(product) {
      buttonIcon.innerHTML = '<i class="fas fa-cart-arrow-down"></i>' 
      buttonContainer.appendChild(buttonIcon)
 
-     return productCard
+     return div
 
     }
     
