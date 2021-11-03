@@ -13,7 +13,6 @@ function loadProducts() {
 }
 
     loadProducts();
-    // This would also be a good place to initialize other parts of the UI
 
 
 /** Uses the loaded products data to create a visible product list on the website */
@@ -149,7 +148,52 @@ function createProduct(product) {
 
  }
 
- window.addEventListener("load", printNrOfElements)
+// What will be shown if you're logged in or not
+function showCorrectAuthBoxes() {
+
+    let loggedInUser = localStorage.getItem("loggedInUser")
+
+    if(loggedInUser) {
+        loggedInUser = JSON.parse(loggedInUser)
+        document.getElementsByClassName("myPage")[0].classList.add("hidden")
+        document.getElementsByClassName("logOut")[0].classList.remove("hidden")
+
+        return
+    } 
+        document.getElementsByClassName("myPage")[0].classList.remove("hidden")
+        document.getElementsByClassName("logOut")[0].classList.add("hidden")
+        loggedInUser = []
+}
+
+// When you click on logOut-link
+document.querySelector(".logOut").addEventListener("click", () => {
+    document.getElementsByClassName("myPage")[0].classList.remove("hidden")
+    document.getElementsByClassName("logOut")[0].classList.add("hidden")
+    localStorage.removeItem("loggedInUser")
+    alert("Du är utloggad!")
+
+    showCorrectAuthBoxes();
+})
+
+// Fungerar ej än. Skall lägga till carten i loggedinuser (localstorage). Eller skall man lägga till det vid pushen? If logged in user är true Pusha här annars pusha i den vanliga carten? 
+/* function cartToUser() {
+
+    let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));  
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+
+    if(loggedInUser.length == 1) {
+        console.log("Någon är inloggad!")
+        // Tankevurpa!!
+        loggedInUser.push({cart})
+    }
+} */
+
+
+
+window.addEventListener("load", showCorrectAuthBoxes);
+window.addEventListener("load", printNrOfElements);
+
  
 
 
