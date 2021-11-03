@@ -23,7 +23,6 @@ function printNrOfElements() {
 // Adding the products to webpage
 function renderCart() {
 
-
     // Taking out main from html
     let main = document.getElementsByTagName("main")[0]
     
@@ -125,7 +124,6 @@ let totalPrice = document.createElement("h3")
     totalPrice.classList.add("totalPrice")  
     main.appendChild(totalPrice)
 
-
 // ButtonCompletePurchase
 let buttonCompletePurchase = document.createElement("div")
     buttonCompletePurchase.classList.add("buttonCompletePurchase")
@@ -133,19 +131,16 @@ let buttonCompletePurchase = document.createElement("div")
     buttonCompletePurchase.addEventListener("click", completeTheOrder) 
     buttonCompletePurchase.style = "cursor:pointer" 
 
-
 // Container to check-icon    
 let divComplete = document.createElement("div")
     divComplete.classList.add("divComplete")
     divComplete.innerHTML = ('<i class="fas fa-check"></i>')
     buttonCompletePurchase.appendChild(divComplete)
 
-
 // ButtonCompletePurchaseText 
 let buttonCompletePurchaseText = document.createElement("p")
     buttonCompletePurchaseText.innerText = "Slutför ditt köp"
     buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
-
 }
  
 
@@ -153,7 +148,6 @@ let buttonCompletePurchaseText = document.createElement("p")
 function deleteItem(title) {
 
      let productToDelete = title;
-
 
     for (let i = 0; i < cart.length; i++) {
 
@@ -181,13 +175,14 @@ function deleteIt() {
     // fetch the updated list from localStorage
     let cart = JSON.parse(localStorage.getItem("cart"));
     
-    // If my shoppingbag is empty:
+    // If my cart is empty:
     if (cart == [] || cart == "") {
         
-        localStorage.clear();
+        /* localStorage.clear(); */  // kan ej använda denna då den tar bort användaruppgifter
+        localStorage.removeItem("cart");
 
         let cart = JSON.parse(localStorage.getItem("cart"));
-        /// Grejerna försvinner inte!!
+        
         let wrapper = document.getElementsByClassName("wrapper")[0].style.display = "none"
         let totalPrice = document.getElementsByClassName("totalPrice")[0].style.display = "none"
         let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
@@ -195,16 +190,17 @@ function deleteIt() {
         alert("Nu är din kundvagn tom!")
 
         printNrOfElements();
+
     } else {
         renderCart();  
     }
-
 }
 
 // Clear local storage and clear the website from innecessary information
 function completeTheOrder() {
  
-    localStorage.clear();
+    /* localStorage.clear(); */ // kan ej använda denna då den tar bort användaruppgifter
+    localStorage.removeItem("cart");
 
     let cart = JSON.parse(localStorage.getItem("cart"));
     
@@ -218,6 +214,36 @@ function completeTheOrder() {
 
     }
 
+
+// What will be shown if you're logged in or not
+function showCorrectAuthBoxes() {
+
+    let loggedInUser = localStorage.getItem("loggedInUser")
+
+
+    if(loggedInUser) {
+        loggedInUser = JSON.parse(loggedInUser)
+        console.log("Tjena")
+        document.getElementsByClassName("myPage")[0].classList.add("hidden")
+        document.getElementsByClassName("logOut")[0].classList.remove("hidden")
+
+        return
+    } 
+        document.getElementsByClassName("myPage")[0].classList.remove("hidden")
+        document.getElementsByClassName("logOut")[0].classList.add("hidden")
+        loggedInUser = []
+    }
+
+// When you click on logOut-link
+document.querySelector(".logOut").addEventListener("click", () => {
+    document.getElementsByClassName("myPage")[0].classList.remove("hidden")
+    document.getElementsByClassName("logOut")[0].classList.add("hidden")
+    localStorage.removeItem("loggedInUser")
+    alert("Du är utloggad!")
+})
+
+
 // Calling this function when the window opens
 window.addEventListener("load", renderCart)
 window.addEventListener("load", printNrOfElements)
+window.addEventListener("load", showCorrectAuthBoxes);
