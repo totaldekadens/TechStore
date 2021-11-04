@@ -52,7 +52,7 @@ header {
 }
 
 #qty {
-    margin-right: 10px;
+    margin-right: 0px;
     font-size: 40px;
 }
 
@@ -246,8 +246,8 @@ h3 {
         margin-right: 10px;
     }
         
-    .qty {
-        font-size: 30px;
+    #qty {
+        font-size: 20px;
     }
         
     .cart {
@@ -277,8 +277,8 @@ h3 {
         margin-right: 10px;
     }
     
-    .qty {
-        font-size: 30px;
+    #qty {
+        font-size: 20px;
     }
     
     .cart {
@@ -309,8 +309,8 @@ h3 {
         margin-right: 10px;
     }
     
-    .qty {
-        font-size: 28px;
+    #qty {
+        font-size: 18px;
     }
     
     .cart {
