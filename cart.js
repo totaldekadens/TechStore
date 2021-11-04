@@ -26,7 +26,7 @@ function renderCart() {
     let main = document.getElementsByTagName("main")[0]
     
     // Will not make a duplicate when clearing the cart from local Storage / Victor, var det så här du menade? 
-    main.innerHTML = "";
+     main.innerHTML = "";
 
 
     // container to cart title and button 
@@ -139,6 +139,8 @@ function renderCart() {
     let buttonCompletePurchaseText = document.createElement("p")
         buttonCompletePurchaseText.innerText = "Slutför ditt köp"
         buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
+
+        
 }
 
 
@@ -151,11 +153,22 @@ function loggedIn() {
 
     // If someone is logged in, then: 
     if(loggedInUser){
-    
-        let myOrders = document.createElement("h2");
-            myOrders.innerText = "Mina tidigare beställningar"
-            myOrders.classList.add("myOrders")
-            main.appendChild(myOrders)
+
+        let mypreOrders = document.createElement("h2");
+        mypreOrders.innerText = "Mina tidigare beställningar"
+        mypreOrders.classList.add("mypreOrders")
+        main.appendChild(mypreOrders)
+        document.querySelector(".mypreOrders").addEventListener("click", () => {
+            if(bigBox.classList == "hidden"){
+                bigBox.classList.remove("hidden")
+            } else {
+                bigBox.classList.add("hidden")
+            }
+        });
+
+        let bigBox = document.createElement("div")
+        bigBox.classList.add("hidden")
+        main.appendChild(bigBox)
 
         for(let i = 0 ; i < userList.length ; i++) {
 
@@ -166,7 +179,7 @@ function loggedIn() {
                 user.orders.forEach(order => {
                     let containerprevious = document.createElement("div")
                     containerprevious.classList.add("containerprevious")
-                    main.appendChild(containerprevious)
+                    bigBox.appendChild(containerprevious)
 
                     let orderNumber = document.createElement("h3")
                     orderNumber.innerText = "Order: " + order.order
@@ -181,7 +194,7 @@ function loggedIn() {
                     order.products.forEach((product) => {
                         let containerOfPreviousOrders = document.createElement("div")
                             containerOfPreviousOrders.classList.add("containerOfPreviousOrders")
-                            main.appendChild(containerOfPreviousOrders)
+                            bigBox.appendChild(containerOfPreviousOrders)
 
                         let productsOfOrder = document.createElement("div")
                             productsOfOrder.innerText = product.product.title
@@ -191,7 +204,7 @@ function loggedIn() {
                         let qtyOfProduct = document.createElement("div")
                             qtyOfProduct.innerText = product.quantity + " st  x  " + product.product.price + " kr"
                             qtyOfProduct.classList.add("containingProducts")
-                            containerOfPreviousOrders.appendChild(qtyOfProduct)
+                            containerOfPreviousOrders.appendChild(qtyOfProduct)   
                     })
                 });
             }
@@ -221,6 +234,7 @@ function deleteItem(title) {
             // Calling the function deleteIt and printNrOfElements
             deleteIt();
             printNrOfElements();
+            
         }
     } 
 }
@@ -232,8 +246,7 @@ function deleteIt() {
     
     // If my cart is empty:
     if (cart == [] || cart == "") {
-        
-        /* localStorage.clear(); */  // kan ej använda denna då den tar bort användaruppgifter
+        console.log("kommit in på ic cart is empty")  
         localStorage.removeItem("cart");
 
         let cart = JSON.parse(localStorage.getItem("cart"));
@@ -246,8 +259,8 @@ function deleteIt() {
 
         printNrOfElements();
 
-    } else {
-        renderCart();  
+    } else { 
+    renderCart(); 
     }
 }
 
