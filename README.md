@@ -58,9 +58,9 @@ VG-krav:
 *	Ej Klart:
       *	Skapa en loginsida där det är möjligt att skapa ett konto samt logga in och se alla beställningarna som har gjorts. Här är design och funktionaliteten frivillig men det        skall finnas en motivation kring vilka besluts som har tagits och varför i er readme fil. Använd localStorage för att spara nya användare samt gjorda beställningar.
 
+Motivation mina sidor:
 
 * Klart 
-Motivation mina sidor. 
 
 Vi har valt att designa ”mina sidor” samt formuläret utifrån hur de andra sidorna är designade. Vi vill att det ska vara enhetligt var du än befinner dig på webbsidan och har därför valt att använda samma typsnitt samt färgerna svart och vitt. Knappen ”logga in” och ”skapa konto” har vi valt i färgen grön för att det ska vara tydligt för användaren var den ska klicka på, vi har även hovrat knappen i en mörkare grön och använt oss av en ”cursor pointer” för att göra det ännu tydligare. Vi har valt att designa ett enkelt och tydligt formulär för att användaren vet vad hen behöver göra för att aningen skapa konto eller logga in.
 
