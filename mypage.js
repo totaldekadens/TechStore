@@ -93,7 +93,7 @@ buttonCA.addEventListener("click", e => {
         }   
 
     // If you get through the validation the credentials will be pushed to the userlist
-    userList.push({username, password})
+    userList.push({username, password, orders: []})
 
     // If a push is being made, you will get an confirmation and will be redirected to login
     if(userList.push) {
@@ -150,16 +150,11 @@ document.querySelector(".button").addEventListener("click", e => {
     // If we get a match, we push the match to the new list "loggedInUser". If not, we have the wrong credentials
     if(logInUser) {
 
-        let loggedInUser = []
+        let loggedInUser = inputUserName
 
-        loggedInUser.push({
-            logInUser,
-            id: Date.now(),
-            products: []  // Jobbar på det! 
-        })
-
-        localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-        alert("Du är inloggad!" + " Välkommen " + loggedInUser[0].logInUser.username) + "!"
+        
+        localStorage.setItem("loggedInUser", loggedInUser);
+        alert("Du är inloggad!"  + " Välkommen " + inputUserName + "!" ) 
         
         showCorrectAuthBoxes();
 
@@ -177,7 +172,7 @@ function showCorrectAuthBoxes() {
 
 
     if(loggedInUser) {
-        loggedInUser = JSON.parse(loggedInUser)
+        /* loggedInUser = JSON.parse(loggedInUser) */
         document.getElementsByClassName("myPage")[0].classList.add("hidden")
         document.getElementsByClassName("logOut")[0].classList.remove("hidden")
         document.querySelector(".container").classList.add("hidden")

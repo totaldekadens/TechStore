@@ -110,7 +110,7 @@ main {
     height: 270px;
     border: 2px solid rgb(74, 122, 197);
     border-radius: 5%;
-    background-color: rgb(252, 252, 252);
+    background-color: whitesmoke;
     transition: transform 0.2s;
 }
 
@@ -211,113 +211,172 @@ h3 {
     margin-right: 5px;
 }
 
+.containerOfPreviousOrders {
+    display: flex;
+    justify-content: left;
+    margin-left: 5px;
+    width: 400px;
+}
+
+.containingProducts {
+    margin-right: 20px;
+    width: 90px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.myOrders {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.containerprevious {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+}
+
 
 @media screen and (max-width: 600px) {
-    .title {
-        font-size: 20px;
-    }  
+.title {
+    font-size: 20px;
+}  
+
+.myPage {
+    font-size: 25px;
+}
+
+.qty {
+    font-size: 35px;
+}
+
+.cart {
+    font-size: 25px;
+}
+
+.containerOfPreviousOrders {
+    width: 280px;
+}
+
+.containerprevious {
+    width: 280px;
+}
+
+}
     
-    .myPage {
-        font-size: 25px;
-    }
+@media screen and (max-width: 520px) {
+
+.cartAndQty {
+    margin-right: 15px;
+}
     
-    .qty {
-        font-size: 35px;
-    }
+.title {
+    font-size: 15px;
+    margin-left: 15px;
+} 
     
-    .cart {
-        font-size: 25px;
-    }
-    }
+.myPage {
+    font-size: 20px;
+    margin-right: 10px;
+}
     
-    @media screen and (max-width: 520px) {
+#qty {
+    font-size: 20px;
+}
     
-    .cartAndQty {
-        margin-right: 15px;
-    }
-        
-    .title {
-        font-size: 15px;
-        margin-left: 15px;
-    } 
-        
-    .myPage {
-        font-size: 20px;
-        margin-right: 10px;
-    }
-        
-    #qty {
-        font-size: 20px;
-    }
-        
-    .cart {
-        font-size: 20px;
-    } 
-        
-    .logOut {
-        font-size: 11px;
-        margin-right: 0px;
-    }    
-    }
+.cart {
+    font-size: 20px;
+} 
     
-    @media screen and (max-width: 480px) {
+.logOut {
+    font-size: 11px;
+    margin-right: 0px;
+}    
+
+.myOrders {
+    font-size: 20px;
+}
+
+}
     
-    .cartAndQty {
-        margin-right: 15px;
-    }
+@media screen and (max-width: 480px) {
+
+.cartAndQty {
+    margin-right: 15px;
+}
+
+.title {
+    font-size: 15px;
+    margin-left: 15px;
+} 
+
+.myPage {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#qty {
+    font-size: 20px;
+}
+
+.cart {
+    font-size: 20px;
+} 
+
+.logOut {
+    font-size: 11px;
+    margin-right: 0px;
+}
+
+.containingProducts {
+    width: 80px;
+    font-size: 12px;
+}
+
+}
     
-    .title {
-        font-size: 15px;
-        margin-left: 15px;
-    } 
-    
-    
-    .myPage {
-        font-size: 20px;
-        margin-right: 10px;
-    }
-    
-    #qty {
-        font-size: 20px;
-    }
-    
-    .cart {
-        font-size: 20px;
-    } 
-    
-    .logOut {
-        font-size: 11px;
-        margin-right: 0px;
-    }
-    }
-    
-    @media screen and (max-width: 320px) {
-    
-    .cartAndQty {
-        margin-right: 10px;
-    }
-    
-    .title {
-        font-size: 13px;
-        margin-left: 10px;
-        
-    }  
-    
-    .myPage {
-        font-size: 18px;
-        margin-left: 5px;
-        margin-right: 10px;
-    }
-    
-    #qty {
-        font-size: 18px;
-    }
-    
-    .cart {
-        font-size: 18px;
-    }   
-    
-    .logOut {
-        font-size: 10px;
-    } 
-    }
+@media screen and (max-width: 320px) {
+
+.cartAndQty {
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 13px;
+    margin-left: 10px;
+}  
+
+.myPage {
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+#qty {
+    font-size: 18px;
+}
+
+.cart {
+    font-size: 18px;
+}   
+
+.logOut {
+    font-size: 10px;
+} 
+
+.myOrders {
+    font-size: 15px;
+}
+
+.containerOfPreviousOrders {
+    width: 250px;
+}
+
+.containerprevious {
+    width: 250px;
+}
+
+}

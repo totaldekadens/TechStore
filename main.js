@@ -154,7 +154,7 @@ function showCorrectAuthBoxes() {
     let loggedInUser = localStorage.getItem("loggedInUser")
 
     if(loggedInUser) {
-        loggedInUser = JSON.parse(loggedInUser)
+        /* loggedInUser = JSON.parse(loggedInUser) */
         document.getElementsByClassName("myPage")[0].classList.add("hidden")
         document.getElementsByClassName("logOut")[0].classList.remove("hidden")
 
