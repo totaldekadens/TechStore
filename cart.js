@@ -19,7 +19,6 @@ function printNrOfElements() {
     numberHeader.innerText = totalSum
 }
 
-
 // Adding the products to webpage
 function renderCart() {
 
@@ -252,7 +251,7 @@ function deleteIt() {
     }
 }
 
-// Clear local storage and clear the website from innecessary information
+// Clear cart from local storage and clear the website from innecessary information
 function completeTheOrder() {
  
     let loggedInUser = localStorage.getItem("loggedInUser");
@@ -332,7 +331,6 @@ document.querySelector(".logOut").addEventListener("click", () => {
     localStorage.removeItem("loggedInUser")
     alert("Du är utloggad!")
 })
-
 
 // Calling this function when the window opens
 window.addEventListener("load", renderCart)

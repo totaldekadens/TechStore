@@ -249,7 +249,7 @@ h3 {
     font-size: 25px;
 }
 
-.qty {
+#qty {
     font-size: 35px;
 }
 
@@ -272,6 +272,10 @@ h3 {
 .cartAndQty {
     margin-right: 15px;
 }
+
+#qty {
+    font-size: 20px;
+}
     
 .title {
     font-size: 15px;
@@ -281,11 +285,7 @@ h3 {
 .myPage {
     font-size: 20px;
     margin-right: 10px;
-}
-    
-#qty {
-    font-size: 20px;
-}
+}  
     
 .cart {
     font-size: 20px;
@@ -356,7 +356,7 @@ h3 {
 }
 
 #qty {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .cart {

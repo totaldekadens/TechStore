@@ -26,8 +26,6 @@ function printNrOfElements() {
     numberHeader.innerText = totalSum
 }
 
-
-
 // Switching between Login-form and create account-form
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -44,8 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("hidden");
     });
 });
-
-
 
 
 // Create account - process
@@ -112,15 +108,6 @@ function validateInputs(username, password) {
     }
         return false
 }
-    
-    
-       
-
-
-
-
-
-
 
 // Login - process
 
@@ -144,7 +131,6 @@ document.querySelector(".button").addEventListener("click", e => {
     let logInUser = userList.find((user) => {
 
         return (user.username == inputUserName && user.password == inputPassword)
-
     })
 
     // If we get a match, we push the match to the new list "loggedInUser". If not, we have the wrong credentials
@@ -202,7 +188,6 @@ document.querySelector(".logOut").addEventListener("click", () => {
     localStorage.removeItem("loggedInUser")
     alert("Du är utloggad!")
 })
-
 
  window.addEventListener("load", showCorrectAuthBoxes);
  window.addEventListener("load", printNrOfElements)
