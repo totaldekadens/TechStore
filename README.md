@@ -61,8 +61,7 @@ VG-krav:
 Motivation mina sidor:
 
 * Klart 
-
-Vi har valt att designa ”mina sidor” samt formuläret utifrån hur de andra sidorna är designade. Vi vill att det ska vara enhetligt var du än befinner dig på webbsidan och har därför valt att använda samma typsnitt samt färgerna svart och vitt. Knappen ”logga in” och ”skapa konto” har vi valt i färgen grön för att det ska vara tydligt för användaren var den ska klicka på, vi har även hovrat knappen i en mörkare grön och använt oss av en ”cursor pointer” för att göra det ännu tydligare. Vi har valt att designa ett enkelt och tydligt formulär för att användaren vet vad hen behöver göra för att aningen skapa konto eller logga in.
+* Vi har valt att designa ”mina sidor” samt formuläret utifrån hur de andra sidorna är designade. Vi vill att det ska vara enhetligt var du än befinner dig på webbsidan och har därför valt att använda samma typsnitt samt färgerna svart och vitt. Knappen ”logga in” och ”skapa konto” har vi valt i färgen grön för att det ska vara tydligt för användaren var den ska klicka på, vi har även hovrat knappen i en mörkare grön och använt oss av en ”cursor pointer” för att göra det ännu tydligare. Vi har valt att designa ett enkelt och tydligt formulär för att användaren vet vad hen behöver göra för att aningen skapa konto eller logga in.
 
 
 Ambition: 
