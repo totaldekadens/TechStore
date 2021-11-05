@@ -63,5 +63,8 @@ VG-krav:
 Ambition: 
 VG om tid finns
 
-GitHub-länk:
+Länk till hemsida:
 https://totaldekadens.github.io/TechStore/index.html
+
+Länk till repo:
+https://github.com/totaldekadens/TechStore
