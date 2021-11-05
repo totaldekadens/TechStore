@@ -19,7 +19,6 @@ function printNrOfElements() {
     numberHeader.innerText = totalSum
 }
 
-
 // Adding the products to webpage
 function renderCart() {
 
@@ -27,7 +26,7 @@ function renderCart() {
     let main = document.getElementsByTagName("main")[0]
     
     // Will not make a duplicate when clearing the cart from local Storage / Victor, var det så här du menade? 
-    main.innerHTML = "";
+     main.innerHTML = "";
 
 
     // container to cart title and button 
@@ -51,6 +50,10 @@ function renderCart() {
     let wrapper = document.createElement("div")
         wrapper.classList.add("wrapper")
         main.appendChild(wrapper)
+
+    if(cart == null) {
+        loggedIn();
+    }
 
     // Loop for the list with added items into the shopping cart  
     for(let i = 0 ; i < cart.length ; i++ ) {
@@ -114,58 +117,129 @@ function renderCart() {
 
     }
 
-// Summing the total price of the products in the cart    
-let totalSum = cart.reduce((sum,item) => sum + item.product.price * item.quantity, 0);
+    // Summing the total price of the products in the cart    
+    let totalSum = cart.reduce((sum,item) => sum + item.product.price * item.quantity, 0);
+
+    // totalPrice . Fetching the sum from "totalSum"
+    let totalPrice = document.createElement("h3")
+        totalPrice.innerText = "Totalt pris: " + totalSum + " kr"  
+        totalPrice.classList.add("totalPrice")  
+        main.appendChild(totalPrice)
+
+    // ButtonCompletePurchase
+    let buttonCompletePurchase = document.createElement("div")
+        buttonCompletePurchase.classList.add("buttonCompletePurchase")
+        main.appendChild(buttonCompletePurchase)
+        buttonCompletePurchase.addEventListener("click", completeTheOrder) 
+        buttonCompletePurchase.style = "cursor:pointer" 
+
+    // Container to check-icon    
+    let divComplete = document.createElement("div")
+        divComplete.classList.add("divComplete")
+        divComplete.innerHTML = ('<i class="fas fa-check"></i>')
+        buttonCompletePurchase.appendChild(divComplete)
+
+    // ButtonCompletePurchaseText 
+    let buttonCompletePurchaseText = document.createElement("p")
+        buttonCompletePurchaseText.innerText = "Slutför ditt köp"
+        buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
+
+        loggedIn();
+}
 
 
-// totalPrice . Fetching the sum from "totalSum"
-let totalPrice = document.createElement("h3")
-    totalPrice.innerText = "Totalt pris: " + totalSum + " kr"  
-    totalPrice.classList.add("totalPrice")  
-    main.appendChild(totalPrice)
 
-// ButtonCompletePurchase
-let buttonCompletePurchase = document.createElement("div")
-    buttonCompletePurchase.classList.add("buttonCompletePurchase")
-    main.appendChild(buttonCompletePurchase)
-    buttonCompletePurchase.addEventListener("click", completeTheOrder) 
-    buttonCompletePurchase.style = "cursor:pointer" 
+// Shows the users previous orders 
+function loggedIn() {
 
-// Container to check-icon    
-let divComplete = document.createElement("div")
-    divComplete.classList.add("divComplete")
-    divComplete.innerHTML = ('<i class="fas fa-check"></i>')
-    buttonCompletePurchase.appendChild(divComplete)
+    let main = document.getElementsByTagName("main")[0]
+    let loggedInUser = localStorage.getItem("loggedInUser");
+    let userList = JSON.parse(localStorage.getItem("users"));
 
-// ButtonCompletePurchaseText 
-let buttonCompletePurchaseText = document.createElement("p")
-    buttonCompletePurchaseText.innerText = "Slutför ditt köp"
-    buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
+    // If someone is logged in, then: 
+    if(loggedInUser){
+        // Did a hide/show function with "click" to the title "Mina tidigare beställningar"
+        let mypreOrders = document.createElement("h2");
+        mypreOrders.innerText = "Mina tidigare beställningar"
+        mypreOrders.classList.add("mypreOrders")
+        main.appendChild(mypreOrders)
+        document.querySelector(".mypreOrders").addEventListener("click", () => {
+            if(bigBox.classList == "hidden"){
+                bigBox.classList.remove("hidden")
+            } else {
+                bigBox.classList.add("hidden")
+            }
+        });
+
+        let bigBox = document.createElement("div")
+        bigBox.classList.add("hidden")
+        main.appendChild(bigBox)
+
+        for(let i = 0 ; i < userList.length ; i++) {
+
+            let user = userList[i]
+            // Matching the logged in user with the userlist. If match, then:
+            if(user.username == loggedInUser) {
+
+                user.orders.forEach(order => {
+                    let containerprevious = document.createElement("div")
+                    containerprevious.classList.add("containerprevious")
+                    bigBox.appendChild(containerprevious)
+
+                    let orderNumber = document.createElement("h3")
+                    orderNumber.innerText = "Order: " + order.order
+                    orderNumber.classList.add("orderNumber")
+                    containerprevious.appendChild(orderNumber)
+
+                    let dateOfOrder = document.createElement("h3")
+                    dateOfOrder.innerText = order.Date
+                    dateOfOrder.classList.add("dateOfOrder")
+                    containerprevious.appendChild(dateOfOrder)
+
+                    order.products.forEach((product) => {
+                        let containerOfPreviousOrders = document.createElement("div")
+                            containerOfPreviousOrders.classList.add("containerOfPreviousOrders")
+                            bigBox.appendChild(containerOfPreviousOrders)
+
+                        let productsOfOrder = document.createElement("div")
+                            productsOfOrder.innerText = product.product.title
+                            productsOfOrder.classList.add("containingProducts")
+                            containerOfPreviousOrders.appendChild(productsOfOrder)
+
+                        let qtyOfProduct = document.createElement("div")
+                            qtyOfProduct.innerText = product.quantity + " st  x  " + product.product.price + " kr"
+                            qtyOfProduct.classList.add("containingProducts")
+                            containerOfPreviousOrders.appendChild(qtyOfProduct)   
+                    })
+                });
+            }
+        }   
+    }              
 }
  
-
 // This function will delete the object from the cart list  
 function deleteItem(title) {
 
-     let productToDelete = title;
+    let productToDelete = title;
 
     for (let i = 0; i < cart.length; i++) {
 
         // comparing the object towards the list. If true:
         if (productToDelete == cart[i].product.title) {
         
-                // Deletes the unique item from the list
-                if(cart[i].quantity == 1) {
-                cart.splice(i, 1);
+            // Deletes the unique item from the list
+            if(cart[i].quantity == 1) {
+            cart.splice(i, 1);
             } else {
-                cart[i].quantity--
+            cart[i].quantity--
             }
-                // Updates the key "cart" in localStorage
-                localStorage.setItem("cart", JSON.stringify(cart)); 
+            // Updates the key "cart" in localStorage
+            localStorage.setItem("cart", JSON.stringify(cart)); 
 
-                // Calling the function deleteIt and printNrOfElements
-                deleteIt();
-                printNrOfElements();
+            // Calling the function deleteIt and printNrOfElements
+            deleteIt();
+            printNrOfElements();
+            
         }
     } 
 }
@@ -177,8 +251,6 @@ function deleteIt() {
     
     // If my cart is empty:
     if (cart == [] || cart == "") {
-        
-        /* localStorage.clear(); */  // kan ej använda denna då den tar bort användaruppgifter
         localStorage.removeItem("cart");
 
         let cart = JSON.parse(localStorage.getItem("cart"));
@@ -191,18 +263,54 @@ function deleteIt() {
 
         printNrOfElements();
 
-    } else {
-        renderCart();  
+    } else { 
+    renderCart(); 
     }
 }
 
-// Clear local storage and clear the website from innecessary information
+// Clear cart from local storage and clear the website from innecessary information
 function completeTheOrder() {
  
-    /* localStorage.clear(); */ // kan ej använda denna då den tar bort användaruppgifter
-    localStorage.removeItem("cart");
-
+    let loggedInUser = localStorage.getItem("loggedInUser");
+    let userList = JSON.parse(localStorage.getItem("users"));
     let cart = JSON.parse(localStorage.getItem("cart"));
+
+
+    if(loggedInUser) {
+
+        for( let i = 0 ; i < userList.length ; i++) {
+
+            let user = userList[i]            
+            
+            if(user.username == loggedInUser) {
+                
+                let orderNr = Math.floor(Math.random() * 100) + 1;
+                let now = new Date().toLocaleString()
+         
+                user.orders.push({
+                    order: orderNr,
+                    Date: now,
+                    products: cart,
+                })
+
+                localStorage.setItem("users", JSON.stringify(userList));
+
+                localStorage.removeItem("cart")
+
+                let wrapper = document.getElementsByClassName("wrapper")[0].style.display = "none"
+                let totalPrice = document.getElementsByClassName("totalPrice")[0].style.display = "none"
+                let buttonCompletePurchase = document.getElementsByClassName("buttonCompletePurchase")[0].style.display = "none"
+
+                alert("Tack för din beställning!")
+
+                printNrOfElements();
+            } 
+
+        }
+        return
+    } 
+
+    localStorage.removeItem("cart");
     
     let wrapper = document.getElementsByClassName("wrapper")[0].style.display = "none"
     let totalPrice = document.getElementsByClassName("totalPrice")[0].style.display = "none"
@@ -211,8 +319,7 @@ function completeTheOrder() {
     alert("Tack för din beställning!")
 
     printNrOfElements();
-
-    }
+}
 
 
 // What will be shown if you're logged in or not
@@ -222,8 +329,7 @@ function showCorrectAuthBoxes() {
 
 
     if(loggedInUser) {
-        loggedInUser = JSON.parse(loggedInUser)
-        console.log("Tjena")
+
         document.getElementsByClassName("myPage")[0].classList.add("hidden")
         document.getElementsByClassName("logOut")[0].classList.remove("hidden")
 
@@ -232,7 +338,7 @@ function showCorrectAuthBoxes() {
         document.getElementsByClassName("myPage")[0].classList.remove("hidden")
         document.getElementsByClassName("logOut")[0].classList.add("hidden")
         loggedInUser = []
-    }
+}
 
 // When you click on logOut-link
 document.querySelector(".logOut").addEventListener("click", () => {
@@ -242,8 +348,8 @@ document.querySelector(".logOut").addEventListener("click", () => {
     alert("Du är utloggad!")
 })
 
-
 // Calling this function when the window opens
 window.addEventListener("load", renderCart)
 window.addEventListener("load", printNrOfElements)
 window.addEventListener("load", showCorrectAuthBoxes);
+

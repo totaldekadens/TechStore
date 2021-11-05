@@ -128,19 +128,6 @@ input {
     transition: 0.2s border-color 0.2s;
     outline: none;
 }
-   /* box-sizing: border-box;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid #dddddd;
-    background:#eeeeee;
-    transition: 0.2s border-color 0.2s;
-}
-
-input:focus {
-    border-color: grey;
-    background: white;
-}
-*/ 
 
 .button {    
     width: 80%;
@@ -171,7 +158,6 @@ input:focus {
     background: rgb(14, 193, 174);
     transition: 0.2s border-color 0.2s;
     cursor:pointer;
-
     color: white;
     font-weight: bold;
 }
@@ -265,6 +251,7 @@ a:link {
         font-size: 11px;
         margin-right: 0px;
 }
+    }
     
     @media screen and (max-width: 480px) {
     
@@ -314,7 +301,7 @@ a:link {
     }
     
     #qty {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .cart {
