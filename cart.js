@@ -51,6 +51,10 @@ function renderCart() {
         wrapper.classList.add("wrapper")
         main.appendChild(wrapper)
 
+    if(cart == null) {
+        loggedIn();
+    }
+
     // Loop for the list with added items into the shopping cart  
     for(let i = 0 ; i < cart.length ; i++ ) {
 
@@ -140,8 +144,9 @@ function renderCart() {
         buttonCompletePurchaseText.innerText = "Slutför ditt köp"
         buttonCompletePurchase.appendChild(buttonCompletePurchaseText)    
 
-        
+        loggedIn();
 }
+
 
 
 // Shows the users previous orders 
@@ -153,7 +158,7 @@ function loggedIn() {
 
     // If someone is logged in, then: 
     if(loggedInUser){
-
+        // Did a hide/show function with "click" to the title "Mina tidigare beställningar"
         let mypreOrders = document.createElement("h2");
         mypreOrders.innerText = "Mina tidigare beställningar"
         mypreOrders.classList.add("mypreOrders")
@@ -300,7 +305,6 @@ function completeTheOrder() {
                 alert("Tack för din beställning!")
 
                 printNrOfElements();
-
             } 
 
         }
@@ -349,4 +353,4 @@ document.querySelector(".logOut").addEventListener("click", () => {
 window.addEventListener("load", renderCart)
 window.addEventListener("load", printNrOfElements)
 window.addEventListener("load", showCorrectAuthBoxes);
-window.addEventListener("load", loggedIn);
+
