@@ -8,28 +8,26 @@ function loadProducts() {
     })
     .then(function(products) {
         listOfProducts = products;
-        addProductsToWebpage(); // Ropar på functionen addProductsToWebpage, nedan..
+        addProductsToWebpage(); 
     });
 }
-
     loadProducts();
-
 
 /** Uses the loaded products data to create a visible product list on the website */
 
 function addProductsToWebpage() { 
-    let main = document.getElementsByTagName("main")[0] // Added element
+    let main = document.getElementsByTagName("main")[0] 
 
     for(i = 0; i < listOfProducts.length; i++) 
     {        
     let CreatePackage = createProduct(listOfProducts[i])
-    main.appendChild(CreatePackage) // Push element into HTML
+    main.appendChild(CreatePackage) 
     }
 }
 
-// Creating function for products 
+// Creat function for products 
 function createProduct(product) {
-    // console.log(product);
+
     // Creates container for all PhoneModels
     let div = document.createElement("div") 
     div.classList.add("phoneModelContainer")
@@ -56,7 +54,6 @@ function createProduct(product) {
     imageContainer.appendChild(productImg)
 
     // Creates Price 
-
     let priceContainer = document.createElement("h3")
     priceContainer.innerText = product.price + " kr"
     div.appendChild(priceContainer)
@@ -70,7 +67,6 @@ function createProduct(product) {
     addToCartButton.title = product.title; 
     buttonContainer.onclick = function () 
     {addToCart(product);};
-    //addToCartButton.addEventListener("click", {addToCart(product);}) - Varför funkar inte detta?
     div.appendChild(buttonContainer)  
     
      // Button Text
@@ -80,7 +76,6 @@ function createProduct(product) {
      buttonContainer.appendChild(buttonText)
      
      // Button Icon
-     
      let buttonIcon = document.createElement("div") 
      buttonIcon.classList.add("buttonIcon")
      buttonIcon.innerHTML = '<i class="fas fa-cart-arrow-down"></i>' 
@@ -90,7 +85,7 @@ function createProduct(product) {
 
     }
     
-    //  A empty array 
+    //  An empty array 
     let cart = []
      
     // This function collect and return cartlist from localStorage. If not existing, returns a empty array 
@@ -102,18 +97,17 @@ function createProduct(product) {
             cart = []
         }
 
-        let index = cart.findIndex((cartItem) => { // FindIndex fungerar om true 
+        let index = cart.findIndex((cartItem) => { 
         
             if(cartItem.product.title == product.title) {
-                return true // Hittar vi match kommer det ta indexet i listan och spara det
+                return true 
             }
-            /* går att skriva det nedan också, det gör samma sak som ifsatsen
-            return cartItem.product.name == product.name  */
+    
         })
 
             if(index < 0) {
                 cart.push({
-                    product: product, // om nyckeln och variablen heter samma räcker det att skriva product
+                    product: product, 
                     quantity: 1
          })
             } else {
@@ -124,21 +118,17 @@ function createProduct(product) {
             (cart));
 
             printNrOfElements();
-
-        // Calling the function
-        //printNrOfElements();
         }
 
 // Creating the function for cartnumber
  function printNrOfElements() {
-    let numberCart = document.getElementById("qty") //Detta är H1 från HTML () = document.querySelector(".h1") // Får ut h1:a
-    // För att hämta ut listan 
+    let numberCart = document.getElementById("qty") 
+    
     let cart = localStorage.getItem("cart")
 
-    // Vi kollar om det finns lista i cart
     if(cart) {
         cart = JSON.parse(cart)
-    } else { // Annars 
+    } else { 
         cart = []
     }
 
@@ -147,33 +137,3 @@ function createProduct(product) {
     numberCart.innerText = totalSum
 
  }
-
-// What will be shown if you're logged in or not
-function showCorrectAuthBoxes() {
-
-    let loggedInUser = localStorage.getItem("loggedInUser")
-
-    if(loggedInUser) {
-        /* loggedInUser = JSON.parse(loggedInUser) */
-        document.getElementsByClassName("myPage")[0].classList.add("hidden")
-        document.getElementsByClassName("logOut")[0].classList.remove("hidden")
-
-        return
-    } 
-        document.getElementsByClassName("myPage")[0].classList.remove("hidden")
-        document.getElementsByClassName("logOut")[0].classList.add("hidden")
-        loggedInUser = []
-}
-
-// When you click on logOut-link
-document.querySelector(".logOut").addEventListener("click", () => {
-    document.getElementsByClassName("myPage")[0].classList.remove("hidden")
-    document.getElementsByClassName("logOut")[0].classList.add("hidden")
-    localStorage.removeItem("loggedInUser")
-    alert("Du är utloggad!")
-
-    showCorrectAuthBoxes();
-})
-
-window.addEventListener("load", showCorrectAuthBoxes);
-window.addEventListener("load", printNrOfElements);
