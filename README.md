@@ -54,13 +54,11 @@ VG-krav:
 *	Klart:
       *	Utöka produktlistan med ett urval från årets modeller så det totalt finns 10 stycken telefoner.
       *	När man bekräftar ett köp skall kundvagnen tömmas.
-
-*	Ej Klart:
-      *	Skapa en loginsida där det är möjligt att skapa ett konto samt logga in och se alla beställningarna som har gjorts. Här är design och funktionaliteten frivillig men det        skall finnas en motivation kring vilka besluts som har tagits och varför i er readme fil. Använd localStorage för att spara nya användare samt gjorda beställningar.
+      *	Skapa en loginsida där det är möjligt att skapa ett konto samt logga in och se alla beställningarna som har gjorts. Här är design och funktionaliteten frivillig men             det skall finnas en motivation kring vilka besluts som har tagits och varför i er readme fil. Använd localStorage för att spara nya användare samt gjorda                         beställningar.
 
 * Motivation mina sidor: 
-* Vi har valt att designa ”mina sidor” samt formuläret utifrån hur de andra sidorna är designade. Vi vill att det ska vara enhetligt var du än befinner dig på webbsidan och har därför valt att använda samma typsnitt samt färgerna svart och vitt. Knappen ”logga in” och ”skapa konto” har vi valt i färgen grön för att det ska vara tydligt för användaren var den ska klicka på, vi har även hovrat knappen i en mörkare grön och använt oss av en ”cursor pointer” för att göra det ännu tydligare. Vi har valt att designa ett enkelt och tydligt formulär för att användaren vet vad hen behöver göra för att aningen skapa konto eller logga in.
-
+     *    Vi har valt att designa ”mina sidor” samt formuläret utifrån hur de andra sidorna är designade. Vi vill att det ska vara enhetligt var du än befinner dig på webbsidan           och har därför valt att använda samma typsnitt samt färgerna svart och vitt. Knappen ”logga in” och ”skapa konto” har vi valt i färgen grön för att det ska                       vara tydligt för användaren var den ska klicka på, vi har även hovrat knappen i en mörkare grön och använt oss av en ”cursor pointer” för att göra det ännu tydligare.           Vi har valt att designa ett enkelt och tydligt formulär för att användaren vet vad hen behöver göra för att aningen skapa konto eller logga in.
+     *    Den funktion vi har tagit hänsyn till är att man framförallt inte skall kunna skapa flera konton med samma användarnamn och att man måste ha ett visst antal tecken.             Man får en tydlig alert om det är något du behöver komplettera, samt får ett tydligt meddelande om du lyckas med inloggningen eller skapandet av kontot.                         Beställningar som är sparade på användaren döljs via en länk för att inte ta för stor plats då historik kan skilja sig en hel del. 
 
 Ambition: 
 VG om tid finns
