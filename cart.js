@@ -251,7 +251,6 @@ function deleteIt() {
     
     // If my cart is empty:
     if (cart == [] || cart == "") {
-        console.log("kommit in på ic cart is empty")  
         localStorage.removeItem("cart");
 
         let cart = JSON.parse(localStorage.getItem("cart"));

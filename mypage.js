@@ -158,7 +158,6 @@ function showCorrectAuthBoxes() {
 
 
     if(loggedInUser) {
-        /* loggedInUser = JSON.parse(loggedInUser) */
         document.getElementsByClassName("myPage")[0].classList.add("hidden")
         document.getElementsByClassName("logOut")[0].classList.remove("hidden")
         document.querySelector(".container").classList.add("hidden")
@@ -180,10 +179,8 @@ document.querySelector(".logOut").addEventListener("click", () => {
     document.getElementsByClassName("logOut")[0].classList.add("hidden")
     document.querySelector("#login").classList.remove("hidden")
 
-     // Fixa så att userlist blir uppdaterad med den nya informationen från loggedinuser  !!!!!!!!!!!!!!!!!!!!
     let loggedInUser = localStorage.getItem("loggedInUser")
     let userList = localStorage.getItem("users")
-
 
     localStorage.removeItem("loggedInUser")
     alert("Du är utloggad!")
