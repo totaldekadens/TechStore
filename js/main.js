@@ -137,3 +137,33 @@ function createProduct(product) {
     numberCart.innerText = totalSum
 
  }
+
+ // What will be shown if you're logged in or not
+function showCorrectAuthBoxes() {
+
+    let loggedInUser = localStorage.getItem("loggedInUser")
+
+    if(loggedInUser) {
+        /* loggedInUser = JSON.parse(loggedInUser) */
+        document.getElementsByClassName("myPage")[0].classList.add("hidden")
+        document.getElementsByClassName("logOut")[0].classList.remove("hidden")
+
+        return
+    } 
+        document.getElementsByClassName("myPage")[0].classList.remove("hidden")
+        document.getElementsByClassName("logOut")[0].classList.add("hidden")
+        loggedInUser = []
+}
+
+// When you click on logOut-link
+document.querySelector(".logOut").addEventListener("click", () => {
+    document.getElementsByClassName("myPage")[0].classList.remove("hidden")
+    document.getElementsByClassName("logOut")[0].classList.add("hidden")
+    localStorage.removeItem("loggedInUser")
+    alert("Du är utloggad!")
+
+    showCorrectAuthBoxes();
+})
+
+window.addEventListener("load", showCorrectAuthBoxes);
+window.addEventListener("load", printNrOfElements);
